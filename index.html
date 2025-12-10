@@ -5085,7 +5085,6 @@
                         <i class="fas fa-university"></i> Bank Transfer
                     </div>
                     
-                    <!-- Mobile Money Options -->
                     <div class="mobile-money-options" id="mobile-money-options">
                         <h5>Select Mobile Money Provider</h5>
                         <div class="mobile-money-option" data-provider="mpesa">M-Pesa</div>
@@ -5095,7 +5094,6 @@
                         <div class="mobile-money-option" data-provider="ezypesa">Ezy Pesa</div>
                     </div>
                     
-                    <!-- Bank Options -->
                     <div class="bank-options" id="bank-options">
                         <h5>Select Bank</h5>
                         <div class="bank-option" data-bank="nmb">NMB Bank</div>
@@ -6153,7 +6151,7 @@ const authTabs = document.querySelectorAll('.auth-tab');
 const authForms = document.querySelectorAll('.auth-form');
 const modalTitle = document.getElementById('modal-title');
 const userTypeOptions = document.querySelectorAll('.user-type-option');
-const paymentMethodSection = document.getElementById('payment-method-section');
+// const paymentMethodSection = document.getElementById('payment-method-section');
 const paymentOptions = document.querySelectorAll('.payment-option');
 const mobileMoneyOptions = document.getElementById('mobile-money-options');
 const bankOptions = document.getElementById('bank-options');
@@ -8631,10 +8629,20 @@ function authenticateUser(email, password) {
     const user = users.find(u => u.email === email && u.password === password);
     
     if (user) {
-        // Check if user is approved (for owners)
-        if (user.role === 'owner' && user.approved === false) {
-            showNotification('Your account is pending approval by admin.', 'error');
-            return;
+        // NEW: Check if owner account is approved
+        if (user.role === 'owner') {
+            if (user.approved === false) {
+                showNotification('Your account is pending approval. Please wait for admin approval before logging in.', 'error');
+                return;
+            } else if (user.approved === undefined) {
+                // Backward compatibility for existing owner accounts
+                user.approved = true;
+                const userIndex = users.findIndex(u => u.email === user.email);
+                if (userIndex !== -1) {
+                    users[userIndex] = user;
+                    localStorage.setItem('amviewUsers', JSON.stringify(users));
+                }
+            }
         }
         
         currentUser = user;
@@ -8658,6 +8666,8 @@ function authenticateUser(email, password) {
             loadHomePage();
         } else if (currentUser.role === 'owner') {
             loadOwnerDashboard();
+        } else if (currentUser.role === 'admin') {
+            loadOwnerApprovals();
         }
         
         // Close login form
@@ -8717,31 +8727,31 @@ function registerUser() {
     let paymentMethod = null;
     let paymentProvider = null;
     
-    if (userType === 'owner') {
-        const selectedPaymentOption = document.querySelector('.payment-option.selected');
-        if (!selectedPaymentOption) {
-            showNotification('Please select a payment method', 'error');
-            return;
-        }
+    // if (userType === 'owner') {
+    //     const selectedPaymentOption = document.querySelector('.payment-option.selected');
+    //     if (!selectedPaymentOption) {
+    //         showNotification('Please select a payment method', 'error');
+    //         return;
+    //     }
         
-        paymentMethod = selectedPaymentOption.dataset.method;
+    //     paymentMethod = selectedPaymentOption.dataset.method;
         
-        if (paymentMethod === 'mobile') {
-            const selectedProvider = document.querySelector('.mobile-money-option.selected');
-            if (!selectedProvider) {
-                showNotification('Please select a mobile money provider', 'error');
-                return;
-            }
-            paymentProvider = selectedProvider.dataset.provider;
-        } else if (paymentMethod === 'bank') {
-            const selectedBank = document.querySelector('.bank-option.selected');
-            if (!selectedBank) {
-                showNotification('Please select a bank', 'error');
-                return;
-            }
-            paymentProvider = selectedBank.dataset.bank;
-        }
-    }
+    //     if (paymentMethod === 'mobile') {
+    //         const selectedProvider = document.querySelector('.mobile-money-option.selected');
+    //         if (!selectedProvider) {
+    //             showNotification('Please select a mobile money provider', 'error');
+    //             return;
+    //         }
+    //         paymentProvider = selectedProvider.dataset.provider;
+    //     } else if (paymentMethod === 'bank') {
+    //         const selectedBank = document.querySelector('.bank-option.selected');
+    //         if (!selectedBank) {
+    //             showNotification('Please select a bank', 'error');
+    //             return;
+    //         }
+    //         paymentProvider = selectedBank.dataset.bank;
+    //     }
+    // }
     
     // Create new user
     const newUser = {
@@ -8758,44 +8768,48 @@ function registerUser() {
             new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString() :
             new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString(),
         subscriptionStatus: userType === 'owner' ? 'pending' : 'active',
-        lastLogin: new Date().toISOString()
+        lastLogin: new Date().toISOString(),
+        // NEW: Set approval status
+        approved: userType === 'owner' ? false : true
     };
     
     if (userType === 'owner') {
-        newUser.approved = false;
         newUser.paymentMethod = paymentMethod;
         newUser.paymentProvider = paymentProvider;
         
-        // Add to pending owners
+        // Add to pending owners for admin approval
         pendingOwners.push({
             email: signupEmail,
             name: signupName,
             paymentMethod: paymentMethod,
             paymentProvider: paymentProvider,
-            date: new Date().toISOString()
+            date: new Date().toISOString(),
+            status: 'pending'
         });
         localStorage.setItem('pendingOwners', JSON.stringify(pendingOwners));
+        
+        // Show special message for owner registration
+        showNotification(
+            'Registration successful! Your account is pending admin approval. You will be notified once approved.',
+            'success'
+        );
+    } else {
+        showNotification('Registration successful! Welcome to AMVIEW.', 'success');
     }
     
     // Add to users array
     users.push(newUser);
     localStorage.setItem('amviewUsers', JSON.stringify(users));
     
-    // Set as current user
-    currentUser = newUser;
-    localStorage.setItem('currentUser', JSON.stringify(newUser));
+    // Set as current user for regular users only
+    if (userType !== 'owner') {
+        currentUser = newUser;
+        localStorage.setItem('currentUser', JSON.stringify(newUser));
+        showAppropriateInterface();
+    }
     
-    // Show success message
-    showNotification(
-        userType === 'owner' ? 
-        'Registration successful! Your account is pending admin approval.' : 
-        'Registration successful! Welcome to AMVIEW.',
-        'success'
-    );
-    
-    // Close modal and show appropriate interface
+    // Close modal
     loginModal.classList.remove('active');
-    showAppropriateInterface();
     
     // Reset form
     document.getElementById('signup-form').reset();
@@ -9250,6 +9264,42 @@ function loadOwnerDashboard() {
     if (approvedMoviesEl) approvedMoviesEl.textContent = approvedMovies.length;
     if (pendingMoviesEl) pendingMoviesEl.textContent = pendingMovies.length;
     if (rejectedMoviesEl) rejectedMoviesEl.textContent = rejectedMovies.length;
+
+     if (currentUser.approved === false) {
+        const dashboardHeader = document.querySelector('#owner-dashboard h2');
+        if (dashboardHeader) {
+            // Check if banner already exists
+            let approvalBanner = document.getElementById('owner-approval-banner');
+            if (!approvalBanner) {
+                approvalBanner = document.createElement('div');
+                approvalBanner.id = 'owner-approval-banner';
+                approvalBanner.style.cssText = `
+                    background: linear-gradient(135deg, rgba(255, 193, 7, 0.2), rgba(255, 193, 7, 0.1));
+                    border: 1px solid rgba(255, 193, 7, 0.3);
+                    border-radius: 12px;
+                    padding: 20px;
+                    margin-bottom: 30px;
+                    text-align: center;
+                `;
+                approvalBanner.innerHTML = `
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 10px;">
+                        <i class="fas fa-clock" style="font-size: 2rem; color: #ffc107;"></i>
+                        <div style="text-align: left;">
+                            <h3 style="color: #ffc107; margin-bottom: 5px;">Account Pending Approval</h3>
+                            <p style="color: var(--text-secondary); margin: 0;">
+                                Your account is currently being reviewed by our admin team. 
+                                You will be able to access all features once approved.
+                            </p>
+                        </div>
+                    </div>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 10px;">
+                        <i class="fas fa-info-circle"></i> You can still upload movies, but they will also require approval.
+                    </p>
+                `;
+                dashboardHeader.parentNode.insertBefore(approvalBanner, dashboardHeader.nextSibling);
+            }
+        }
+    }
 }
 
 // Load owner status page
@@ -9298,7 +9348,7 @@ function loadOwnerMovies() {
                 <i class="fas fa-film" style="font-size: 3rem; margin-bottom: 20px; opacity: 0.5;"></i>
                 <h3>No movies uploaded yet</h3>
                 <p>Upload your first movie to get started</p>
-                <a href="#" class="owner-nav-link" data-page="upload" style="margin-top: 20px; display: inline-block;">Upload Movie</a>
+                <a href="#" class="owner-nav-link" data-page="owner-upload" style="margin-top: 20px; display: inline-block;">Upload Movie</a>
             </div>
         `;
         return;
@@ -9382,7 +9432,10 @@ function loadOwnerApprovals() {
     const ownerApprovalList = document.getElementById('owner-approval-list');
     if (!ownerApprovalList) return;
     
-    if (pendingOwners.length === 0) {
+    // Get all pending owners
+    const pendingAccounts = pendingOwners.filter(owner => owner.status === 'pending');
+    
+    if (pendingAccounts.length === 0) {
         ownerApprovalList.innerHTML = `
             <div style="text-align: center; padding: 40px; color: var(--text-secondary);">
                 <i class="fas fa-check-circle" style="font-size: 3rem; margin-bottom: 20px; opacity: 0.5;"></i>
@@ -9393,8 +9446,8 @@ function loadOwnerApprovals() {
         return;
     }
     
-    ownerApprovalList.innerHTML = pendingOwners.map(owner => `
-        <div class="approval-item">
+    ownerApprovalList.innerHTML = pendingAccounts.map(owner => `
+        <div class="approval-item" data-email="${owner.email}">
             <div>
                 <strong>${owner.name}</strong>
                 <div style="font-size: 0.9rem; color: var(--text-secondary);">
@@ -9402,6 +9455,10 @@ function loadOwnerApprovals() {
                 </div>
                 <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 5px;">
                     Requested: ${new Date(owner.date).toLocaleDateString()}
+                </div>
+                <div style="font-size: 0.8rem; margin-top: 5px; display: flex; align-items: center; gap: 10px;">
+                    <span class="status-badge status-pending">Pending Approval</span>
+                    <span style="color: var(--text-secondary);">Waiting for admin review</span>
                 </div>
             </div>
             <div class="approval-actions">
@@ -9411,6 +9468,9 @@ function loadOwnerApprovals() {
                 <button class="action-btn reject-owner-btn" data-email="${owner.email}">
                     <i class="fas fa-times"></i> Reject
                 </button>
+                <button class="action-btn view-details-btn" data-email="${owner.email}">
+                    <i class="fas fa-eye"></i> Details
+                </button>
             </div>
         </div>
     `).join('');
@@ -9419,17 +9479,170 @@ function loadOwnerApprovals() {
     ownerApprovalList.querySelectorAll('.approve-owner-btn').forEach(btn => {
         btn.addEventListener('click', function() {
             const email = this.dataset.email;
-            approveOwner(email);
+            approveOwnerAccount(email);
         });
     });
     
     ownerApprovalList.querySelectorAll('.reject-owner-btn').forEach(btn => {
         btn.addEventListener('click', function() {
             const email = this.dataset.email;
-            rejectOwner(email);
+            rejectOwnerAccount(email);
+        });
+    });
+    
+    ownerApprovalList.querySelectorAll('.view-details-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const email = this.dataset.email;
+            viewOwnerDetails(email);
         });
     });
 }
+
+// Approve owner account
+function approveOwnerAccount(email) {
+    // Update user in users array
+    const userIndex = users.findIndex(u => u.email === email);
+    if (userIndex !== -1) {
+        users[userIndex].approved = true;
+        users[userIndex].subscriptionStatus = 'active';
+        localStorage.setItem('amviewUsers', JSON.stringify(users));
+        
+        // Update pending owners list
+        const ownerIndex = pendingOwners.findIndex(o => o.email === email);
+        if (ownerIndex !== -1) {
+            pendingOwners[ownerIndex].status = 'approved';
+            pendingOwners[ownerIndex].approvedDate = new Date().toISOString();
+            localStorage.setItem('pendingOwners', JSON.stringify(pendingOwners));
+        }
+        
+        // Send notification (in a real app, this would be an email)
+        console.log(`Owner account ${email} has been approved.`);
+        
+        showNotification(`Owner account for ${users[userIndex].name} has been approved`, 'success');
+        
+        // Reload the approval list
+        loadOwnerApprovals();
+        
+        // Also update movie approvals if any movies were pending
+        updatePendingMoviesForOwner(email);
+    }
+}
+
+// Reject owner account
+function rejectOwnerAccount(email) {
+    // Show confirmation dialog
+    if (confirm('Are you sure you want to reject this owner account? This action cannot be undone.')) {
+        // Remove from users array
+        users = users.filter(u => u.email !== email);
+        localStorage.setItem('amviewUsers', JSON.stringify(users));
+        
+        // Update pending owners list
+        const ownerIndex = pendingOwners.findIndex(o => o.email === email);
+        if (ownerIndex !== -1) {
+            pendingOwners[ownerIndex].status = 'rejected';
+            pendingOwners[ownerIndex].rejectedDate = new Date().toISOString();
+            localStorage.setItem('pendingOwners', JSON.stringify(pendingOwners));
+        }
+        
+        // Remove any pending movies from this owner
+        pendingMovies = pendingMovies.filter(m => m.owner !== email);
+        localStorage.setItem('pendingMovies', JSON.stringify(pendingMovies));
+        
+        showNotification('Owner account has been rejected', 'success');
+        loadOwnerApprovals();
+    }
+}
+
+// View owner details
+function viewOwnerDetails(email) {
+    const owner = pendingOwners.find(o => o.email === email);
+    const user = users.find(u => u.email === email);
+    
+    if (!owner) return;
+    
+    const detailsHtml = `
+        <div style="background: var(--glass); padding: 20px; border-radius: 12px; margin-top: 10px;">
+            <h4 style="margin-bottom: 15px;">Owner Details</h4>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                <div>
+                    <strong>Full Name:</strong>
+                    <p>${owner.name}</p>
+                </div>
+                <div>
+                    <strong>Email:</strong>
+                    <p>${owner.email}</p>
+                </div>
+                <div>
+                    <strong>Payment Method:</strong>
+                    <p>${owner.paymentMethod}</p>
+                </div>
+                <div>
+                    <strong>Payment Provider:</strong>
+                    <p>${owner.paymentProvider}</p>
+                </div>
+                <div>
+                    <strong>Registration Date:</strong>
+                    <p>${new Date(owner.date).toLocaleString()}</p>
+                </div>
+                <div>
+                    <strong>Status:</strong>
+                    <p><span class="status-badge status-pending">Pending</span></p>
+                </div>
+            </div>
+            <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--glass-border);">
+                <strong>Actions:</strong>
+                <div style="display: flex; gap: 10px; margin-top: 10px;">
+                    <button class="btn-primary approve-btn" data-email="${email}" style="padding: 8px 16px; font-size: 0.9rem;">
+                        <i class="fas fa-check"></i> Approve Account
+                    </button>
+                    <button class="btn-secondary reject-btn" data-email="${email}" style="padding: 8px 16px; font-size: 0.9rem;">
+                        <i class="fas fa-times"></i> Reject Account
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    // Find the approval item and append details
+    const approvalItem = document.querySelector(`.approval-item[data-email="${email}"]`);
+    if (approvalItem) {
+        // Check if details are already shown
+        const existingDetails = approvalItem.querySelector('.owner-details-expanded');
+        if (existingDetails) {
+            existingDetails.remove();
+        } else {
+            const detailsDiv = document.createElement('div');
+            detailsDiv.className = 'owner-details-expanded';
+            detailsDiv.innerHTML = detailsHtml;
+            approvalItem.appendChild(detailsDiv);
+            
+            // Add event listeners to new buttons
+            detailsDiv.querySelector('.approve-btn').addEventListener('click', function() {
+                approveOwnerAccount(email);
+            });
+            
+            detailsDiv.querySelector('.reject-btn').addEventListener('click', function() {
+                rejectOwnerAccount(email);
+            });
+        }
+    }
+}
+
+// Update pending movies for approved owner
+function updatePendingMoviesForOwner(email) {
+    // Find pending movies by this owner and update their status
+    const ownerPendingMovies = pendingMovies.filter(movie => movie.owner === email);
+    
+    ownerPendingMovies.forEach(movie => {
+        const movieIndex = pendingMovies.findIndex(m => m.id === movie.id);
+        if (movieIndex !== -1) {
+            pendingMovies[movieIndex].ownerApproved = true;
+        }
+    });
+    
+    localStorage.setItem('pendingMovies', JSON.stringify(pendingMovies));
+}
+
 
 // Load movie approvals (admin)
 function loadMovieApprovals() {
@@ -9637,6 +9850,120 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+const approvalStyles = `
+/* Approval Status Badges */
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
+}
+
+.status-pending {
+    background: rgba(255, 193, 7, 0.2);
+    color: #ffc107;
+    border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
+.status-approved {
+    background: rgba(76, 175, 80, 0.2);
+    color: #4caf50;
+    border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.status-rejected {
+    background: rgba(244, 67, 54, 0.2);
+    color: #f44336;
+    border: 1px solid rgba(244, 67, 54, 0.3);
+}
+
+/* Enhanced Approval Items */
+.approval-item {
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.approval-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.approval-item.pending {
+    border-left: 4px solid #ffc107;
+}
+
+.approval-item.approved {
+    border-left: 4px solid #4caf50;
+}
+
+.approval-item.rejected {
+    border-left: 4px solid #f44336;
+}
+
+/* Approval Actions */
+.approval-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.approval-actions .action-btn {
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Owner Details Expanded */
+.owner-details-expanded {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid var(--glass-border);
+    animation: fadeInUp 0.3s ease;
+}
+
+/* Registration Success Modal */
+.registration-success-modal {
+    max-width: 500px;
+}
+
+.registration-success-content {
+    text-align: center;
+}
+
+.registration-success-content i {
+    font-size: 4rem;
+    color: #4caf50;
+    margin-bottom: 20px;
+}
+
+.registration-success-content h3 {
+    margin-bottom: 15px;
+    color: var(--text);
+}
+
+.registration-success-content p {
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+`;
+
+// Add the styles to the document
+const styleSheet = document.createElement('style');
+styleSheet.textContent = approvalStyles;
+document.head.appendChild(styleSheet);
 </script>
 </body>
 </html>
