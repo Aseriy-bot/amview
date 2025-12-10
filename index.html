@@ -4236,6 +4236,282 @@
         transform: translateY(-2px);
         transition: transform 0.3s ease;
     }
+
+    /* Payment Modal Styles */
+    .payment-modal {
+        max-width: 500px;
+        width: 90%;
+    }
+
+    .payment-option-card {
+        background: var(--glass);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--glass-border);
+        border-radius: 12px;
+        padding: 20px;
+        margin-bottom: 15px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .payment-option-card:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-2px);
+    }
+
+    .payment-option-card.selected {
+        background: rgba(59, 147, 195, 0.2);
+        border-color: #3b93c3;
+    }
+
+    .payment-option-card i {
+        font-size: 1.5rem;
+        color: #16dcd4;
+    }
+
+    .payment-option-content {
+        flex: 1;
+    }
+
+    .payment-option-content h4 {
+        margin-bottom: 5px;
+        color: var(--text);
+    }
+
+    .payment-option-content p {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+    }
+
+    .mobile-payment-providers {
+        margin-top: 15px;
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+        display: none;
+    }
+
+    .mobile-payment-providers.active {
+        display: block;
+    }
+
+    .payment-provider {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        margin-bottom: 8px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .payment-provider:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .payment-provider.selected {
+        background: rgba(59, 147, 195, 0.2);
+    }
+
+    .payment-provider i {
+        margin-right: 10px;
+        font-size: 1.2rem;
+    }
+
+    .bank-account-details {
+        margin-top: 15px;
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+        display: none;
+    }
+
+    .bank-account-details.active {
+        display: block;
+    }
+
+    .bank-detail {
+        margin-bottom: 10px;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+    }
+
+    .bank-detail label {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .bank-detail span {
+        color: var(--text);
+        font-weight: 600;
+    }
+
+    .payment-form {
+        display: none;
+        animation: fadeInUp 0.5s ease;
+    }
+
+    .payment-form.active {
+        display: block;
+    }
+
+    .payment-amount {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #16dcd4;
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    .payment-instructions {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 15px;
+        border-radius: 10px;
+        margin-top: 15px;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+    }
+
+    /* Subscribe Now Button */
+    .subscribe-now-btn {
+        background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+        color: white;
+        padding: 16px 32px;
+        border-radius: 12px;
+        border: none;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.4s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        position: relative;
+        overflow: hidden;
+        margin-top: 20px;
+        display: block;
+        width: 100%;
+    }
+
+    .subscribe-now-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.6s;
+    }
+
+    .subscribe-now-btn:hover::before {
+        left: 100%;
+    }
+
+    .subscribe-now-btn:hover {
+        background: linear-gradient(135deg, #ff5252, #ff7b7b);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+    }
+
+    /* Profile Page Subscription Info */
+    .subscription-info {
+        background: var(--glass);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--glass-border);
+        border-radius: 16px;
+        padding: 25px;
+        margin-bottom: 30px;
+    }
+
+    .subscription-info h3 {
+        margin-bottom: 15px;
+        color: var(--text);
+        font-size: 1.4rem;
+    }
+
+    .current-plan {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+    }
+
+    .plan-details h4 {
+        color: var(--text);
+        margin-bottom: 5px;
+    }
+
+    .plan-price {
+        font-size: 1.5rem;
+        font-weight: 700;
+        background: var(--primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .plan-status {
+        padding: 8px 16px;
+        background: rgba(76, 175, 80, 0.2);
+        color: #4caf50;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+    }
+
+    .plan-expiry {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+    }
+
+    /* Subscription Plan Dropdown */
+    .subscription-select {
+        position: relative;
+    }
+
+    .subscription-select select {
+        appearance: none;
+        background: var(--glass);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--glass-border);
+        border-radius: 12px;
+        padding: 16px 20px;
+        color: var(--text);
+        font-size: 1rem;
+        width: 100%;
+        cursor: pointer;
+    }
+
+    .subscription-select::after {
+        content: '▼';
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-secondary);
+        pointer-events: none;
+        font-size: 0.8rem;
+    }
+
+    .plan-option {
+        padding: 10px;
+        background: var(--glass);
+        color: var(--text);
+    }
+
+    .plan-option:hover {
+        background: rgba(59, 147, 195, 0.2);
+    }
+
 /* For mobile devices (phones, up to 768px) */
 @media (max-width: 768px) {
   .features-section {
@@ -4375,6 +4651,96 @@
     font-size: 1.2rem;
   }
 }
+
+/* Add to your CSS file */
+.plan-features-container {
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.plan-features-container h4 {
+    color: var(--text);
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.plan-features-container ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.plan-features-container li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+}
+
+.plan-features-container li:last-child {
+    border-bottom: none;
+}
+
+.plan-features-container li i {
+    color: #16dcd4;
+    margin-right: 10px;
+    font-size: 0.9rem;
+}
+
+/* Update the current plan styling */
+.current-plan {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.plan-details h4 {
+    color: var(--text);
+    margin-bottom: 8px;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.plan-price {
+    font-size: 1.8rem;
+    font-weight: 800;
+    background: var(--primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
+}
+
+.plan-expiry {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.plan-status {
+    padding: 10px 20px;
+    background: rgba(76, 175, 80, 0.2);
+    color: #4caf50;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+#downloads-page{
+    padding-top: 30px;
+}
+
+#downloads-page h1{
+    padding-bottom: 20px;
+}
+
 </style>
 </head>
 <body>
@@ -4395,6 +4761,136 @@
             <div class="video-controls">
                 <!-- Quality selector will be added here by JavaScript -->
             </div>
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div class="modal-overlay" id="payment-modal">
+        <div class="login-modal payment-modal">
+            <div class="modal-header">
+                <h2>Subscribe to AMVIEW</h2>
+                <button class="close-modal" id="close-payment-modal">&times;</button>
+            </div>
+            
+          
+            
+            <!-- Payment Options -->
+            <div class="payment-form active" id="payment-method-selection">
+                <h3 style="margin-bottom: 20px; color: var(--text);">Select Payment Method</h3>
+                
+                <div class="payment-option-card" data-method="bank">
+                    <i class="fas fa-university"></i>
+                    <div class="payment-option-content">
+                        <h4>Bank Account Payment</h4>
+                        <p>Pay via bank transfer or direct deposit</p>
+                    </div>
+                </div>
+                
+                <div class="payment-option-card" data-method="mobile">
+                    <i class="fas fa-mobile-alt"></i>
+                    <div class="payment-option-content">
+                        <h4>Mobile Payment</h4>
+                        <p>Pay via Mpesa, Airtel Money, Tigo Pesa</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bank Account Details -->
+            <div class="payment-form" id="bank-payment-form">
+                <h3 style="margin-bottom: 20px; color: var(--text);">Bank Account Details</h3>
+                
+                <div class="bank-account-details active">
+                    <div class="bank-detail">
+                        <label>Bank Name</label>
+                        <span id="bank-name">NMB Bank</span>
+                    </div>
+                    <div class="bank-detail">
+                        <label>Account Name</label>
+                        <span>AMVIEW Streaming Services</span>
+                    </div>
+                    <div class="bank-detail">
+                        <label>Account Number</label>
+                        <span>0123456789</span>
+                    </div>
+                    <div class="bank-detail">
+                        <label>Swift Code</label>
+                        <span>NMIBTZTZ</span>
+                    </div>
+                    <div class="bank-detail">
+                        <label>Branch</label>
+                        <span>Dar es Salaam Main Branch</span>
+                    </div>
+                </div>
+                
+                <div class="payment-instructions">
+                    <p><strong>Instructions:</strong></p>
+                    <p>1. Make a transfer to the account details above</p>
+                    <p>2. Use your email as reference</p>
+                    <p>3. Upload proof of payment below</p>
+                    <p>4. Your account will be activated within 24 hours</p>
+                </div>
+                
+                <div class="form-group" style="margin-top: 20px;">
+                    <label for="payment-proof">Upload Proof of Payment</label>
+                    <input type="file" id="payment-proof" accept=".jpg,.jpeg,.png,.pdf">
+                </div>
+                
+                <button class="btn-primary" id="confirm-bank-payment" style="width: 100%; margin-top: 20px;">
+                    Confirm Payment
+                </button>
+            </div>
+            
+            <!-- Mobile Payment Options -->
+            <div class="payment-form" id="mobile-payment-form">
+                <h3 style="margin-bottom: 20px; color: var(--text);">Select Mobile Payment Provider</h3>
+                
+                <div class="mobile-payment-providers active">
+                    <div class="payment-provider" data-provider="mpesa">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <div>M-Pesa</div>
+                    </div>
+                    <div class="payment-provider" data-provider="airtel">
+                        <i class="fas fa-signal"></i>
+                        <div>Airtel Money</div>
+                    </div>
+                    <div class="payment-provider" data-provider="tigo">
+                        <i class="fas fa-bolt"></i>
+                        <div>Tigo Pesa</div>
+                    </div>
+                    <div class="payment-provider" data-provider="halo">
+                        <i class="fas fa-h-square"></i>
+                        <div>Halo Pesa</div>
+                    </div>
+                </div>
+                
+                <div class="payment-instructions" id="mobile-payment-instructions">
+                    <p><strong>Instructions for M-Pesa:</strong></p>
+                    <p>1. Go to M-Pesa menu on your phone</p>
+                    <p>2. Select Lipa na M-Pesa</p>
+                    <p>3. Enter Business Number: <strong>123456</strong></p>
+                    <p>4. Enter Amount: <span id="mobile-amount">9,999</span></p>
+                    <p>5. Enter your PIN and send</p>
+                    <p>6. Enter the transaction code below</p>
+                </div>
+                
+                <div class="form-group" style="margin-top: 20px;">
+                    <label for="transaction-code">Transaction Code</label>
+                    <input type="text" id="transaction-code" placeholder="Enter M-Pesa transaction code">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone-number">Phone Number</label>
+                    <input type="text" id="phone-number" placeholder="Enter phone number used for payment">
+                </div>
+                
+                <button class="btn-primary" id="confirm-mobile-payment" style="width: 100%; margin-top: 20px;">
+                    Confirm Mobile Payment
+                </button>
+            </div>
+            
+            <button class="btn-secondary" id="back-to-payment-methods" style="width: 100%; margin-top: 15px; display: none;">
+                <i class="fas fa-arrow-left"></i> Back to Payment Methods
+            </button>
         </div>
     </div>
 
@@ -4466,6 +4962,7 @@
                 </div>
             </div>
         </div>
+        
         <div class="cta-section">
             <div class="container">
                 <p>Ready to watch? Enter your email to create or restart your membership.</p>
@@ -4650,12 +5147,6 @@
                     <div class="user-menu">
                         <div class="user-avatar" id="user-avatar">U</div>
                         <span id="user-fullname">User</span>
-                        <div class="user-dropdown">
-                            <a href="#" class="nav-link" data-page="profile">Profile</a>
-                            <a href="#" class="nav-link" data-page="my-list">My List</a>
-                            <a href="#" class="nav-link" data-page="downloads">Downloads</a>
-                            <a href="#" class="admin-logout-btn">Logout</a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -4770,7 +5261,7 @@
                                     <li>Watch on your laptop, TV, phone and tablet</li>
                                     <li>Unlimited movies and TV shows</li>
                                 </ul>
-                                <button class="btn-primary">Choose Plan</button>
+                                <button class="btn-primary subscribe-plan-btn" data-plan="basic" data-price="9999">Choose Plan</button>
                             </div>
                             <div class="plan recommended">
                                 <div class="recommended-badge">Most Popular</div>
@@ -4783,7 +5274,7 @@
                                     <li>Unlimited movies and TV shows</li>
                                     <li>Download and watch offline</li>
                                 </ul>
-                                <button class="btn-primary">Choose Plan</button>
+                                <button class="btn-primary subscribe-plan-btn" data-plan="standard" data-price="19999">Choose Plan</button>
                             </div>
                             <div class="plan">
                                 <h3 class="plan-name">Premium</h3>
@@ -4796,7 +5287,7 @@
                                     <li>Download and watch offline</li>
                                     <li>No ads</li>
                                 </ul>
-                                <button class="btn-primary">Choose Plan</button>
+                                <button class="btn-primary subscribe-plan-btn" data-plan="premium" data-price="29999">Choose Plan</button>
                             </div>
                         </div>
                     </div>
@@ -4910,20 +5401,56 @@
                     <div class="container">
                         <h1 class="section-title">Profile</h1>
                         
+                        <!-- Subscription Information -->
+                        <div class="subscription-info">
+                            <h3>Subscription Details</h3>
+                            <div class="current-plan">
+                                <div class="plan-details">
+                                    <h4 id="current-plan-name">Basic Plan</h4>
+                                    <div class="plan-price" id="current-plan-price">TZS 9,999/=</div>
+                                    <div class="plan-expiry" id="plan-expiry">Expires: December 15, 2023</div>
+                                </div>
+                                <div class="plan-status" id="plan-status">Active</div>
+                            </div>
+                            
+                            <!-- Plan features will be dynamically inserted here -->
+                            <div class="plan-features-container" id="plan-features-container">
+                                <!-- Dynamic content will be loaded here -->
+                            </div>
+                            
+                            <button class="subscribe-now-btn" id="profile-subscribe-now">
+                                <i class="fas fa-crown"></i> Subscribe Now
+                            </button>
+                        </div>
+                        
+                        <!-- Personal Information -->
+                        <h3 style="margin-bottom: 20px;">Personal Information</h3>
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="profile-name">Full Name</label>
-                                <input type="text" id="profile-name" value="Mubezi B. Christopher ">
+                                <input type="text" id="profile-name" placeholder="Enter your full name">
                             </div>
                             <div class="form-group">
                                 <label for="profile-email">Email</label>
-                                <input type="email" id="profile-email" value="mubbie@amview.com" readonly>
+                                <input type="email" id="profile-email" placeholder="Enter your email" readonly>
                             </div>
                         </div>
                         
+                        <!-- Subscription Plan Selection -->
                         <div class="form-group">
-                            <label for="profile-subscription">Subscription Plan</label>
-                            <input type="text" id="profile-subscription" value="Premium" readonly>
+                            <label for="profile-subscription">Change Subscription Plan</label>
+                            <div class="subscription-select">
+                                <select id="profile-subscription">
+                                    <option value="basic">Basic - TZS 9,999/month</option>
+                                    <option value="standard">Standard - TZS 19,999/month</option>
+                                    <option value="premium">Premium - TZS 29,999/month</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!-- Preview of selected plan -->
+                        <div id="subscription-preview" style="margin-bottom: 20px;">
+                            <!-- Preview will be dynamically updated here -->
                         </div>
                         
                         <div class="form-group">
@@ -4980,7 +5507,7 @@
                             </div>
                         </div>
                         
-                        <button class="btn-primary" style="margin-top: 20px;">Save Changes</button>
+                        <button class="btn-primary" id="save-profile-changes" style="margin-top: 20px;">Save Changes</button>
                         <button class="btn-secondary logout-btn">Logout</button>
                     </div>
                 </section>
@@ -5497,15 +6024,20 @@
 // CORE DATA STRUCTURES
 // ============================================
 
-// Enhanced user data structure
+// Enhanced user data structure with subscription info
 let users = JSON.parse(localStorage.getItem('amviewUsers')) || [
     { 
         email: "mubbie@amview.com", 
         password: "password", 
-        name: "Regular User", 
+        name: "Mubezi B. Christopher", 
         role: "user", 
         joinDate: new Date().toISOString(), 
-        subscription: "Premium", 
+        subscription: "Basic", 
+        subscriptionPlan: "basic",
+        subscriptionPrice: 9999,
+        subscriptionDate: new Date().toISOString(),
+        subscriptionExpiry: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString(),
+        subscriptionStatus: "active",
         lastLogin: new Date().toISOString() 
     },
     { 
@@ -5515,6 +6047,11 @@ let users = JSON.parse(localStorage.getItem('amviewUsers')) || [
         role: "owner", 
         joinDate: new Date().toISOString(), 
         subscription: "Owner", 
+        subscriptionPlan: "owner",
+        subscriptionPrice: 0,
+        subscriptionDate: new Date().toISOString(),
+        subscriptionExpiry: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString(),
+        subscriptionStatus: "active",
         lastLogin: new Date().toISOString(),
         approved: true,
         paymentMethod: "mobile",
@@ -5527,6 +6064,11 @@ let users = JSON.parse(localStorage.getItem('amviewUsers')) || [
         role: "admin", 
         joinDate: new Date().toISOString(), 
         subscription: "Admin", 
+        subscriptionPlan: "admin",
+        subscriptionPrice: 0,
+        subscriptionDate: new Date().toISOString(),
+        subscriptionExpiry: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString(),
+        subscriptionStatus: "active",
         lastLogin: new Date().toISOString() 
     }
 ];
@@ -5586,6 +6128,12 @@ let videoQualities = {
     }
 };
 
+// Payment modal state
+let selectedPaymentMethod = null;
+let selectedPaymentProvider = null;
+let selectedPlan = null;
+let selectedPlanPrice = null;
+
 // ============================================
 // DOM ELEMENTS
 // ============================================
@@ -5595,8 +6143,10 @@ const userInterface = document.getElementById('user-interface');
 const ownerInterface = document.getElementById('owner-interface');
 const adminInterface = document.getElementById('admin-interface');
 const loginModal = document.getElementById('login-modal');
+const paymentModal = document.getElementById('payment-modal');
 const showLoginModalBtn = document.getElementById('show-login-modal');
 const closeLoginModalBtn = document.getElementById('close-login-modal');
+const closePaymentModalBtn = document.getElementById('close-payment-modal');
 const loginForm = document.getElementById('login-form');
 const signupForm = document.getElementById('signup-form');
 const authTabs = document.querySelectorAll('.auth-tab');
@@ -5622,6 +6172,32 @@ const videoPlayer = document.getElementById('video-player');
 const closeVideoBtn = document.getElementById('close-video');
 const videoTitle = document.getElementById('video-title');
 
+// New elements for profile and subscription features
+const profileNameInput = document.getElementById('profile-name');
+const profileEmailInput = document.getElementById('profile-email');
+const profileSubscriptionSelect = document.getElementById('profile-subscription');
+const profileBillingInput = document.getElementById('profile-billing');
+const saveProfileChangesBtn = document.getElementById('save-profile-changes');
+const profileSubscribeNowBtn = document.getElementById('profile-subscribe-now');
+const subscribePlanButtons = document.querySelectorAll('.subscribe-plan-btn');
+const currentPlanName = document.getElementById('current-plan-name');
+const currentPlanPrice = document.getElementById('current-plan-price');
+const planExpiry = document.getElementById('plan-expiry');
+const planStatus = document.getElementById('plan-status');
+
+// Payment modal elements
+const paymentOptionCards = document.querySelectorAll('.payment-option-card');
+const paymentMethodSelection = document.getElementById('payment-method-selection');
+const bankPaymentForm = document.getElementById('bank-payment-form');
+const mobilePaymentForm = document.getElementById('mobile-payment-form');
+const backToPaymentMethodsBtn = document.getElementById('back-to-payment-methods');
+const paymentProviders = document.querySelectorAll('.payment-provider');
+const mobilePaymentInstructions = document.getElementById('mobile-payment-instructions');
+const mobileAmount = document.getElementById('mobile-amount');
+const paymentAmountDisplay = document.getElementById('payment-amount-display');
+const confirmBankPaymentBtn = document.getElementById('confirm-bank-payment');
+const confirmMobilePaymentBtn = document.getElementById('confirm-mobile-payment');
+
 // ============================================
 // INITIALIZATION
 // ============================================
@@ -5637,7 +6213,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Update movie new status based on time
     updateMovieNewStatus();
     
-      // Add event listener for Start Now button on login page
+    // Add event listener for Start Now button on login page
     const startNowBtn = document.querySelector('.btn-get-started');
     if (startNowBtn) {
         startNowBtn.addEventListener('click', function(e) {
@@ -5666,12 +6242,14 @@ document.addEventListener('DOMContentLoaded', function() {
             modalTitle.textContent = 'Sign In';
         });
     }
+    
     // Check if user is already logged in
     const savedUser = localStorage.getItem('currentUser');
     if (savedUser) {
         try {
             currentUser = JSON.parse(savedUser);
             showAppropriateInterface();
+            updateProfilePage();
         } catch (error) {
             console.error('Error parsing saved user:', error);
             localStorage.removeItem('currentUser');
@@ -5794,6 +6372,24 @@ document.addEventListener('DOMContentLoaded', function() {
         loginModal.addEventListener('click', function(e) {
             if (e.target === loginModal) {
                 loginModal.classList.remove('active');
+            }
+        });
+    }
+
+    // Payment modal functionality
+    if (closePaymentModalBtn) {
+        closePaymentModalBtn.addEventListener('click', function() {
+            paymentModal.classList.remove('active');
+            resetPaymentModal();
+        });
+    }
+
+    // Close payment modal when clicking outside
+    if (paymentModal) {
+        paymentModal.addEventListener('click', function(e) {
+            if (e.target === paymentModal) {
+                paymentModal.classList.remove('active');
+                resetPaymentModal();
             }
         });
     }
@@ -5930,6 +6526,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Phase 2: Initialize enhanced features
     initPhase2Features();
 
+    // Initialize payment modal functionality
+    initPaymentModal();
+
+    // Initialize subscription functionality
+    initSubscriptionFunctionality();
+
     // Load initial content if user is logged in
     if (currentUser) {
         if (currentUser.role === 'user') {
@@ -5942,6 +6544,660 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
+
+// ============================================
+// PROFILE AND SUBSCRIPTION FUNCTIONS
+// ============================================
+
+function initSubscriptionFunctionality() {
+    // Subscribe Now button on profile page
+    if (profileSubscribeNowBtn) {
+        profileSubscribeNowBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Get the currently selected plan from the profile page
+            const profilePlanSelect = document.getElementById('profile-subscription');
+            let selectedPlanValue = 'basic';
+            let selectedPlanPrice = 9999;
+            
+            if (profilePlanSelect) {
+                selectedPlanValue = profilePlanSelect.value;
+                const planData = getPlanData(selectedPlanValue);
+                selectedPlanPrice = planData.price;
+            }
+            
+            showPaymentModal(selectedPlanValue, selectedPlanPrice);
+        });
+    }
+
+    // Subscribe buttons on plans
+    subscribePlanButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const plan = this.dataset.plan;
+            const price = this.dataset.price;
+            showPaymentModal(plan, price);
+        });
+    });
+
+    // Save profile changes
+    if (saveProfileChangesBtn) {
+        saveProfileChangesBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            saveProfileChanges();
+        });
+    }
+
+    // Subscription plan dropdown change
+    if (profileSubscriptionSelect) {
+        profileSubscriptionSelect.addEventListener('change', function() {
+            updateSubscriptionPreview();
+            updateSubscriptionDetails(this.value);
+        });
+    }
+}
+
+function getPlanData(planValue) {
+    const plans = {
+        'basic': {
+            name: 'Basic Plan',
+            price: 9999,
+            priceDisplay: 'TZS 9,999/=',
+            features: ['HD Available', '1 Screen', 'Watch on laptop, TV, phone & tablet', 'Unlimited movies and TV shows']
+        },
+        'standard': {
+            name: 'Standard Plan',
+            price: 19999,
+            priceDisplay: 'TZS 19,999/=',
+            features: ['HD Available', '2 Screens', 'Watch on laptop, TV, phone & tablet', 'Unlimited movies and TV shows', 'Download and watch offline']
+        },
+        'premium': {
+            name: 'Premium Plan',
+            price: 29999,
+            priceDisplay: 'TZS 29,999/=',
+            features: ['Ultra HD Available', '4 Screens', 'Watch on laptop, TV, phone & tablet', 'Unlimited movies and TV shows', 'Download and watch offline', 'No ads']
+        },
+        'owner': {
+            name: 'Owner Plan',
+            price: 0,
+            priceDisplay: 'Free',
+            features: ['All Premium features', 'Movie upload capability', 'Revenue sharing', 'Analytics dashboard']
+        },
+        'admin': {
+            name: 'Admin Plan',
+            price: 0,
+            priceDisplay: 'Free',
+            features: ['Full platform access', 'User management', 'Content moderation', 'Analytics']
+        }
+    };
+    
+    return plans[planValue] || plans['basic'];
+}
+
+function updatePlanFeatures(planValue) {
+    const planData = getPlanData(planValue);
+    const subscriptionInfo = document.querySelector('.subscription-info');
+    
+    if (!subscriptionInfo) return;
+    
+    // Find or create features container
+    let featuresContainer = subscriptionInfo.querySelector('.plan-features-container');
+    if (!featuresContainer) {
+        featuresContainer = document.createElement('div');
+        featuresContainer.className = 'plan-features-container';
+        featuresContainer.style.marginTop = '20px';
+        subscriptionInfo.insertBefore(featuresContainer, subscriptionInfo.querySelector('.subscribe-now-btn'));
+    }
+    
+    // Create features list
+    featuresContainer.innerHTML = `
+        <h4 style="margin-bottom: 10px; color: var(--text);">Plan Features</h4>
+        <ul style="list-style-type: none; padding-left: 0;">
+            ${planData.features.map(feature => `
+                <li style="padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                    <i class="fas fa-check" style="color: #16dcd4; margin-right: 10px;"></i>
+                    ${feature}
+                </li>
+            `).join('')}
+        </ul>
+    `;
+}
+
+function updateProfilePage() {
+    if (!currentUser) return;
+    
+    // Update profile form with user data
+    if (profileNameInput) profileNameInput.value = currentUser.name;
+    if (profileEmailInput) profileEmailInput.value = currentUser.email;
+    
+    // Update subscription information
+    updateSubscriptionInfo();
+    
+    // Update subscription dropdown
+    if (profileSubscriptionSelect) {
+        const planValue = currentUser.subscriptionPlan || 'basic';
+        profileSubscriptionSelect.value = planValue;
+        
+        // Also update subscription details
+        updateSubscriptionDetails(planValue);
+    }
+    
+    // Update billing date
+    if (profileBillingInput && currentUser.subscriptionExpiry) {
+        const expiryDate = new Date(currentUser.subscriptionExpiry);
+        const formattedDate = expiryDate.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+        profileBillingInput.value = `Next billing: ${formattedDate}`;
+    }
+}
+
+function updateSubscriptionInfo() {
+    if (!currentUser) return;
+    
+    const planData = getPlanData(currentUser.subscriptionPlan || 'basic');
+    
+    if (currentPlanName) currentPlanName.textContent = planData.name;
+    if (currentPlanPrice) currentPlanPrice.textContent = planData.priceDisplay;
+    if (planStatus) planStatus.textContent = currentUser.subscriptionStatus === 'active' ? 'Active' : 'Inactive';
+    
+    // Update plan features
+    updatePlanFeatures(currentUser.subscriptionPlan || 'basic');
+    
+    if (planExpiry && currentUser.subscriptionExpiry) {
+        const expiryDate = new Date(currentUser.subscriptionExpiry);
+        const formattedDate = expiryDate.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+        planExpiry.textContent = `Expires: ${formattedDate}`;
+    }
+}
+
+function saveProfileChanges() {
+    if (!currentUser) return;
+    
+    // Get updated values
+    const newName = profileNameInput ? profileNameInput.value.trim() : currentUser.name;
+    const newSubscriptionPlan = profileSubscriptionSelect ? profileSubscriptionSelect.value : currentUser.subscriptionPlan;
+    
+    // Validate
+    if (!newName) {
+        showNotification('Please enter your name', 'error');
+        return;
+    }
+    
+    // Update current user
+    currentUser.name = newName;
+    currentUser.subscriptionPlan = newSubscriptionPlan;
+    
+    // Update subscription based on plan
+    const planData = getPlanData(newSubscriptionPlan);
+    
+    currentUser.subscription = planData.name;
+    currentUser.subscriptionPrice = planData.price;
+    
+    // Set expiry date to 30 days from now
+    const expiryDate = new Date();
+    expiryDate.setDate(expiryDate.getDate() + 30);
+    currentUser.subscriptionExpiry = expiryDate.toISOString();
+    
+    // Update user in users array
+    const userIndex = users.findIndex(u => u.email === currentUser.email);
+    if (userIndex !== -1) {
+        users[userIndex] = currentUser;
+        localStorage.setItem('amviewUsers', JSON.stringify(users));
+    }
+    
+    // Update localStorage
+    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+    
+    // Update UI
+    updateSubscriptionInfo();
+    
+    // Update user info in header
+    const userAvatar = document.getElementById('user-avatar');
+    const userFullname = document.getElementById('user-fullname');
+    if (userAvatar) userAvatar.textContent = currentUser.name.charAt(0).toUpperCase();
+    if (userFullname) userFullname.textContent = currentUser.name;
+    
+    showNotification('Profile updated successfully!', 'success');
+}
+
+function updateSubscriptionPreview() {
+    if (!profileSubscriptionSelect) return;
+    
+    const selectedPlan = profileSubscriptionSelect.value;
+    const planData = getPlanData(selectedPlan);
+    
+    // Get or create preview element
+    let previewElement = document.getElementById('subscription-preview');
+    if (!previewElement) {
+        previewElement = document.createElement('div');
+        previewElement.id = 'subscription-preview';
+        previewElement.style.marginBottom = '20px';
+        
+        // Insert after the subscription select
+        const subscriptionSelect = document.querySelector('.subscription-select');
+        if (subscriptionSelect) {
+            subscriptionSelect.parentNode.insertBefore(previewElement, subscriptionSelect.nextSibling);
+        }
+    }
+    
+    // Update preview content
+    previewElement.innerHTML = `
+        <div style="background: rgba(59, 147, 195, 0.1); padding: 20px; border-radius: 12px; border: 1px solid rgba(59, 147, 195, 0.3); margin-top: 10px;">
+            <h4 style="color: var(--text); margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                <i class="fas fa-eye" style="color: #16dcd4;"></i>
+                Plan Preview: ${planData.name}
+            </h4>
+            <p style="color: var(--text); margin-bottom: 10px;">
+                <strong>Price:</strong> <span style="color: #16dcd4; font-weight: 700;">${planData.priceDisplay}</span>
+            </p>
+            <p style="color: var(--text); margin-bottom: 15px;">
+                <strong>Key Features:</strong>
+            </p>
+            <ul style="list-style-type: none; padding-left: 0; margin-bottom: 20px;">
+                ${planData.features.map(feature => `
+                    <li style="padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); color: var(--text-secondary);">
+                        <i class="fas fa-check" style="color: #4caf50; margin-right: 10px;"></i>
+                        ${feature}
+                    </li>
+                `).join('')}
+            </ul>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; font-style: italic;">
+                Click "Save Changes" to update your subscription to this plan
+            </p>
+        </div>
+    `;
+    
+    // Also update the subscription details in the subscription-info section
+    updateSubscriptionDetails(selectedPlan);
+}
+
+// ============================================
+// PAYMENT MODAL FUNCTIONS
+// ============================================
+
+function initPaymentModal() {
+    // Payment option selection
+    paymentOptionCards.forEach(card => {
+        card.addEventListener('click', function() {
+            paymentOptionCards.forEach(c => c.classList.remove('selected'));
+            this.classList.add('selected');
+            
+            selectedPaymentMethod = this.dataset.method;
+            
+            // Show appropriate payment form
+            if (selectedPaymentMethod === 'bank') {
+                paymentMethodSelection.classList.remove('active');
+                bankPaymentForm.classList.add('active');
+                mobilePaymentForm.classList.remove('active');
+                backToPaymentMethodsBtn.style.display = 'block';
+            } else if (selectedPaymentMethod === 'mobile') {
+                paymentMethodSelection.classList.remove('active');
+                bankPaymentForm.classList.remove('active');
+                mobilePaymentForm.classList.add('active');
+                backToPaymentMethodsBtn.style.display = 'block';
+                
+                // Reset provider selection
+                paymentProviders.forEach(p => p.classList.remove('selected'));
+                selectedPaymentProvider = null;
+                updateMobilePaymentInstructions();
+            }
+        });
+    });
+    
+    // Back to payment methods
+    if (backToPaymentMethodsBtn) {
+        backToPaymentMethodsBtn.addEventListener('click', function() {
+            paymentMethodSelection.classList.add('active');
+            bankPaymentForm.classList.remove('active');
+            mobilePaymentForm.classList.remove('active');
+            this.style.display = 'none';
+            selectedPaymentMethod = null;
+            selectedPaymentProvider = null;
+        });
+    }
+    
+    // Mobile payment provider selection
+    paymentProviders.forEach(provider => {
+        provider.addEventListener('click', function() {
+            paymentProviders.forEach(p => p.classList.remove('selected'));
+            this.classList.add('selected');
+            
+            selectedPaymentProvider = this.dataset.provider;
+            updateMobilePaymentInstructions();
+        });
+    });
+    
+    // Confirm bank payment
+    if (confirmBankPaymentBtn) {
+        confirmBankPaymentBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            processBankPayment();
+        });
+    }
+    
+    // Confirm mobile payment
+    if (confirmMobilePaymentBtn) {
+        confirmMobilePaymentBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            processMobilePayment();
+        });
+    }
+}
+
+function showPaymentModal(plan = null, price = null) {
+    if (!currentUser) {
+        showNotification('Please login first', 'error');
+        return;
+    }
+    
+    // Determine which plan to show
+    let displayPlan = plan;
+    let displayPrice = price;
+    let planName = '';
+    
+    // If no plan provided explicitly, check the subscription details section
+    if (!plan) {
+        // Try to get from the selected plan dropdown in profile
+        const profilePlanSelect = document.getElementById('profile-subscription');
+        if (profilePlanSelect && profilePlanSelect.value) {
+            displayPlan = profilePlanSelect.value;
+            const planData = getPlanData(displayPlan);
+            displayPrice = planData.price;
+            planName = planData.name;
+        } 
+        // Or get from the current user's subscription
+        else if (currentUser.subscriptionPlan) {
+            displayPlan = currentUser.subscriptionPlan;
+            displayPrice = currentUser.subscriptionPrice;
+            planName = currentUser.subscription;
+        } 
+        // Default to basic
+        else {
+            displayPlan = 'basic';
+            displayPrice = 9999;
+            planName = 'Basic Plan';
+        }
+    } else {
+        // Get plan name for the provided plan value
+        const planData = getPlanData(plan);
+        planName = planData.name;
+    }
+    
+    // Set selected plan
+    selectedPlan = displayPlan;
+    selectedPlanPrice = displayPrice;
+    
+    // Create and add plan display section to modal
+    updatePaymentModalPlanDisplay(planName, displayPrice);
+    
+    // Update payment amount display
+    if (paymentAmountDisplay) {
+        paymentAmountDisplay.textContent = `TZS ${parseInt(displayPrice).toLocaleString()}/=`;
+    }
+    
+    if (mobileAmount) {
+        mobileAmount.textContent = parseInt(displayPrice).toLocaleString();
+    }
+    
+    // Reset modal state
+    resetPaymentModal();
+    
+    // Show modal
+    paymentModal.classList.add('active');
+}
+
+// Update payment modal with plan details
+function updatePaymentModalPlanDisplay(planName, planPrice) {
+    // Check if plan display already exists, if not create it
+    let planDisplaySection = document.getElementById('payment-plan-display');
+    
+    if (!planDisplaySection) {
+        // Create the plan display section
+        planDisplaySection = document.createElement('div');
+        planDisplaySection.id = 'payment-plan-display';
+        planDisplaySection.style.cssText = `
+            background: rgba(59, 147, 195, 0.1);
+            border: 1px solid rgba(59, 147, 195, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        `;
+        
+        // Insert after the modal header
+        const modalHeader = document.querySelector('.payment-modal .modal-header');
+        if (modalHeader) {
+            modalHeader.parentNode.insertBefore(planDisplaySection, modalHeader.nextSibling);
+        }
+    }
+    
+    // Get plan features based on plan name
+    const planFeatures = getPlanFeatures(planName);
+    
+    // Update the content
+    planDisplaySection.innerHTML = `
+        <h3 style="margin-bottom: 10px; color: #16dcd4; font-size: 1.3rem;">${planName}</h3>
+        <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 15px; color: white;">
+            TZS ${parseInt(planPrice).toLocaleString()}/=
+        </div>
+        <div style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 10px;">
+            ${planFeatures.join(' • ')}
+        </div>
+        <div style="font-size: 0.85rem; color: var(--text); font-style: italic;">
+            Complete payment to activate this subscription
+        </div>
+    `;
+}
+
+// Get plan features based on plan name
+function getPlanFeatures(planName) {
+    const featuresMap = {
+        'Basic Plan': ['HD Available', '1 Screen', 'Unlimited Movies & TV Shows'],
+        'Standard Plan': ['HD Available', '2 Screens', 'Offline Downloads', 'Unlimited Movies & TV Shows'],
+        'Premium Plan': ['Ultra HD Available', '4 Screens', 'Offline Downloads', 'No Ads', 'Unlimited Movies & TV Shows'],
+        'Owner Plan': ['All Premium Features', 'Movie Upload Capability', 'Revenue Sharing'],
+        'Admin Plan': ['Full Platform Access', 'User Management', 'Content Moderation']
+    };
+    
+    return featuresMap[planName] || ['HD Available', '1 Screen', 'Unlimited Movies & TV Shows'];
+}
+
+function resetPaymentModal() {
+    // Reset selections
+    paymentOptionCards.forEach(c => c.classList.remove('selected'));
+    paymentProviders.forEach(p => p.classList.remove('selected'));
+    
+    // Show payment method selection
+    paymentMethodSelection.classList.add('active');
+    bankPaymentForm.classList.remove('active');
+    mobilePaymentForm.classList.remove('active');
+    
+    // Hide back button
+    if (backToPaymentMethodsBtn) {
+        backToPaymentMethodsBtn.style.display = 'none';
+    }
+    
+    // Reset form inputs
+    const transactionCode = document.getElementById('transaction-code');
+    const phoneNumber = document.getElementById('phone-number');
+    const paymentProof = document.getElementById('payment-proof');
+    
+    if (transactionCode) transactionCode.value = '';
+    if (phoneNumber) phoneNumber.value = '';
+    if (paymentProof) paymentProof.value = '';
+    
+    // Reset state
+    selectedPaymentMethod = null;
+    selectedPaymentProvider = null;
+}
+
+function updateMobilePaymentInstructions() {
+    if (!selectedPaymentProvider) {
+        mobilePaymentInstructions.innerHTML = `
+            <p><strong>Instructions:</strong></p>
+            <p>Select a mobile payment provider to see instructions</p>
+        `;
+        return;
+    }
+    
+    const instructions = {
+        'mpesa': {
+            steps: [
+                'Go to M-Pesa menu on your phone',
+                'Select Lipa na M-Pesa',
+                'Enter Business Number: <strong>123456</strong>',
+                'Enter Amount: <span id="mobile-amount">' + (selectedPlanPrice ? parseInt(selectedPlanPrice).toLocaleString() : '9,999') + '</span>',
+                'Enter your PIN and send',
+                'Enter the transaction code below'
+            ]
+        },
+        'airtel': {
+            steps: [
+                'Go to Airtel Money menu on your phone',
+                'Select Make Payment',
+                'Enter Business Number: <strong>0789123456</strong>',
+                'Enter Amount: <span id="mobile-amount">' + (selectedPlanPrice ? parseInt(selectedPlanPrice).toLocaleString() : '9,999') + '</span>',
+                'Enter your PIN and send',
+                'Enter the transaction code below'
+            ]
+        },
+        'tigo': {
+            steps: [
+                'Go to Tigo Pesa menu on your phone',
+                'Select Send Money',
+                'Enter Business Number: <strong>0651234567</strong>',
+                'Enter Amount: <span id="mobile-amount">' + (selectedPlanPrice ? parseInt(selectedPlanPrice).toLocaleString() : '9,999') + '</span>',
+                'Enter your PIN and send',
+                'Enter the transaction code below'
+            ]
+        },
+        'halo': {
+            steps: [
+                'Go to Halo Pesa menu on your phone',
+                'Select Pay Bill',
+                'Enter Business Number: <strong>0712345678</strong>',
+                'Enter Amount: <span id="mobile-amount">' + (selectedPlanPrice ? parseInt(selectedPlanPrice).toLocaleString() : '9,999') + '</span>',
+                'Enter your PIN and send',
+                'Enter the transaction code below'
+            ]
+        }
+    };
+    
+    const providerInstructions = instructions[selectedPaymentProvider] || instructions['mpesa'];
+    
+    let html = `<p><strong>Instructions for ${selectedPaymentProvider.toUpperCase()}:</strong></p>`;
+    providerInstructions.steps.forEach(step => {
+        html += `<p>${step}</p>`;
+    });
+    
+    mobilePaymentInstructions.innerHTML = html;
+}
+
+function processBankPayment() {
+    const paymentProof = document.getElementById('payment-proof');
+    
+    if (!paymentProof || !paymentProof.files || paymentProof.files.length === 0) {
+        showNotification('Please upload proof of payment', 'error');
+        return;
+    }
+    
+    // Simulate payment processing
+    showNotification('Processing bank payment...', 'success');
+    
+    setTimeout(() => {
+        completeSubscription();
+    }, 2000);
+}
+
+function processMobilePayment() {
+    const transactionCode = document.getElementById('transaction-code').value.trim();
+    const phoneNumber = document.getElementById('phone-number').value.trim();
+    
+    if (!selectedPaymentProvider) {
+        showNotification('Please select a mobile payment provider', 'error');
+        return;
+    }
+    
+    if (!transactionCode) {
+        showNotification('Please enter transaction code', 'error');
+        return;
+    }
+    
+    if (!phoneNumber) {
+        showNotification('Please enter phone number', 'error');
+        return;
+    }
+    
+    // Validate transaction code format (simplified)
+    if (transactionCode.length < 8) {
+        showNotification('Please enter a valid transaction code', 'error');
+        return;
+    }
+    
+    // Simulate payment processing
+    showNotification(`Processing ${selectedPaymentProvider} payment...`, 'success');
+    
+    setTimeout(() => {
+        completeSubscription();
+    }, 2000);
+}
+
+function completeSubscription() {
+    if (!currentUser || !selectedPlan) return;
+    
+    // Update user subscription
+    const planInfo = {
+        'basic': { name: 'Basic', price: 9999 },
+        'standard': { name: 'Standard', price: 19999 },
+        'premium': { name: 'Premium', price: 29999 }
+    };
+    
+    if (planInfo[selectedPlan]) {
+        currentUser.subscription = planInfo[selectedPlan].name;
+        currentUser.subscriptionPlan = selectedPlan;
+        currentUser.subscriptionPrice = planInfo[selectedPlan].price;
+        currentUser.subscriptionStatus = 'active';
+        currentUser.subscriptionDate = new Date().toISOString();
+        
+        // Set expiry date to 30 days from now
+        const expiryDate = new Date();
+        expiryDate.setDate(expiryDate.getDate() + 30);
+        currentUser.subscriptionExpiry = expiryDate.toISOString();
+        
+        // Update user in users array
+        const userIndex = users.findIndex(u => u.email === currentUser.email);
+        if (userIndex !== -1) {
+            users[userIndex] = currentUser;
+            localStorage.setItem('amviewUsers', JSON.stringify(users));
+        }
+        
+        // Update localStorage
+        localStorage.setItem('currentUser', JSON.stringify(currentUser));
+        
+        // Update UI
+        updateSubscriptionInfo();
+        updateProfilePage();
+        
+        // Close payment modal
+        paymentModal.classList.remove('active');
+        resetPaymentModal();
+        
+        // Remove plan display section
+        const planDisplaySection = document.getElementById('payment-plan-display');
+        if (planDisplaySection) {
+            planDisplaySection.remove();
+        }
+        
+        showNotification('Subscription successful! Thank you for subscribing to AMVIEW.', 'success');
+    }
+}
 
 // ============================================
 // PHASE 2: CORE FEATURES IMPLEMENTATION
@@ -6505,10 +7761,7 @@ function refreshFamilyMembersList() {
 // 8. ADVANCED SEARCH FILTERS
 // ============================================
 
-function initAdvancedSearch() {
-    // Enhance existing search with advanced filters
-    enhanceSearchWithFilters();
-    
+function initAdvancedSearch() { 
     // Add advanced search modal event listeners
     addAdvancedSearchEventListeners();
 }
@@ -6798,6 +8051,11 @@ function navigateToPage(pageName) {
     const targetPageElement = document.getElementById(pageName + '-page');
     if (targetPageElement) {
         targetPageElement.classList.remove('hidden');
+        
+        // Update profile page if needed
+        if (pageName === 'profile') {
+            updateProfilePage();
+        }
     }
     
     // Update active nav link
@@ -6831,297 +8089,39 @@ function navigateToPage(pageName) {
     }
 }
 
-// User Registration Function
-function registerUser() {
-    const name = document.getElementById('signup-name').value.trim();
-    const email = document.getElementById('signup-email').value.trim().toLowerCase();
-    const password = document.getElementById('signup-password').value;
-    const confirmPassword = document.getElementById('confirm-password').value;
-    const termsAgreed = document.getElementById('terms-agreement').checked;
-    
-    // Get selected user type
-    const selectedUserType = document.querySelector('.user-type-option.selected');
-    if (!selectedUserType) {
-        showNotification('Please select a user type.', 'error');
-        return;
+// Load movies from localStorage
+function loadMoviesFromStorage() {
+    const storedMovies = localStorage.getItem('amviewMovies');
+    if (storedMovies) {
+        movies = JSON.parse(storedMovies);
     }
-    const userType = selectedUserType.dataset.type;
+}
+
+// Update movie new status
+function updateMovieNewStatus() {
+    const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
     
-    // Validation
-    const errors = validateRegistration(name, email, password, confirmPassword, termsAgreed);
-    
-    if (errors.length > 0) {
-        showNotification(errors.join(', '), 'error');
-        return;
-    }
-    
-    // Check if user already exists
-    if (users.find(user => user.email === email)) {
-        showNotification('An account with this email already exists.', 'error');
-        return;
-    }
-    
-    // Create new user object
-    const newUser = {
-        email: email,
-        password: password,
-        name: name,
-        role: userType,
-        joinDate: new Date().toISOString(),
-        subscription: userType === 'owner' ? 'Owner' : 'Basic',
-        lastLogin: new Date().toISOString()
-    };
-    
-    // Add payment information for movie owners
-    if (userType === 'owner') {
-        const selectedPaymentMethod = document.querySelector('.payment-option.selected');
-        if (!selectedPaymentMethod) {
-            showNotification('Please select a payment method.', 'error');
-            return;
+    movies.forEach(movie => {
+        if (movie.addedDate) {
+            const addedDate = new Date(movie.addedDate);
+            movie.new = addedDate > thirtyDaysAgo;
         }
-        
-        newUser.paymentMethod = selectedPaymentMethod.dataset.method;
-        
-        if (newUser.paymentMethod === 'mobile') {
-            const selectedProvider = document.querySelector('.mobile-money-option.selected');
-            if (!selectedProvider) {
-                showNotification('Please select a mobile money provider.', 'error');
-                return;
-            }
-            newUser.paymentProvider = selectedProvider.dataset.provider;
-            newUser.approved = false; // Requires admin approval
-        } else if (newUser.paymentMethod === 'bank') {
-            const selectedBank = document.querySelector('.bank-option.selected');
-            if (!selectedBank) {
-                showNotification('Please select a bank.', 'error');
-                return;
-            }
-            newUser.paymentProvider = selectedBank.dataset.bank;
-            newUser.approved = false; // Requires admin approval
-        }
-        
-        // Add to pending owners for admin approval
-        pendingOwners.push(newUser);
-        localStorage.setItem('pendingOwners', JSON.stringify(pendingOwners));
-        
-        showNotification('Movie owner account created! Waiting for admin approval.', 'success');
-    } else {
-        // Regular user - no approval needed
-        users.push(newUser);
-        localStorage.setItem('amviewUsers', JSON.stringify(users));
-        
-        // Auto-login the new user
-        currentUser = newUser;
-        localStorage.setItem('currentUser', JSON.stringify(currentUser));
-        
-        showNotification('Account created successfully! Welcome to AMVIEW!', 'success');
-        
-        // Close modal and show user interface
-        setTimeout(() => {
-            loginModal.classList.remove('active');
-            showAppropriateInterface();
-        }, 1500);
-    }
-    
-    // Reset form
-    signupForm.reset();
-    userTypeOptions.forEach(opt => opt.classList.remove('selected'));
-    paymentMethodSection.style.display = 'none';
-}
-
-// Registration Validation
-function validateRegistration(name, email, password, confirmPassword, termsAgreed) {
-    const errors = [];
-    
-    if (!name || name.length < 2) {
-        errors.push('Please enter a valid full name (at least 2 characters)');
-    }
-    
-    if (!email || !isValidEmail(email)) {
-        errors.push('Please enter a valid email address');
-    }
-    
-    if (!password || password.length < 6) {
-        errors.push('Password must be at least 6 characters long');
-    }
-    
-    if (password !== confirmPassword) {
-        errors.push('Passwords do not match');
-    }
-    
-    if (!termsAgreed) {
-        errors.push('Please agree to the Terms of Service and Privacy Policy');
-    }
-    
-    return errors;
-}
-
-// Email validation
-function isValidEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-}
-
-// Password strength validation
-function validatePasswordStrength() {
-    const password = document.getElementById('signup-password').value;
-    const strengthBar = document.querySelector('.strength-fill');
-    const strengthText = document.getElementById('strength-text');
-    
-    if (!strengthBar || !strengthText) return;
-    
-    let strength = 'weak';
-    let text = 'Weak';
-    
-    if (password.length >= 8) {
-        strength = 'medium';
-        text = 'Medium';
-    }
-    
-    if (password.length >= 12 && /[A-Z]/.test(password) && /[0-9]/.test(password) && /[^A-Za-z0-9]/.test(password)) {
-        strength = 'strong';
-        text = 'Strong';
-    }
-    
-    strengthBar.className = `strength-fill strength-${strength}`;
-    strengthText.textContent = text;
-    strengthText.style.color = strength === 'weak' ? '#ff6b6b' : strength === 'medium' ? '#ffe66d' : '#4ecdc4';
-}
-
-// Password match validation
-function validatePasswordMatch() {
-    const password = document.getElementById('signup-password').value;
-    const confirmPassword = document.getElementById('confirm-password').value;
-    const confirmGroup = document.getElementById('confirm-password').closest('.form-group');
-    const errorElement = confirmGroup.querySelector('.error') || createErrorElement(confirmGroup);
-    
-    if (confirmPassword && password !== confirmPassword) {
-        errorElement.textContent = 'Passwords do not match';
-        errorElement.style.display = 'block';
-        confirmGroup.classList.add('error');
-    } else {
-        errorElement.style.display = 'none';
-        confirmGroup.classList.remove('error');
-        if (password === confirmPassword && confirmPassword) {
-            confirmGroup.classList.add('success');
-        }
-    }
-}
-
-// Create error element for form validation
-function createErrorElement(formGroup) {
-    const errorElement = document.createElement('div');
-    errorElement.className = 'error';
-    formGroup.appendChild(errorElement);
-    return errorElement;
-}
-
-// Authentication function
-function authenticateUser(email, password) {
-    // Check regular users first
-    let user = users.find(u => u.email === email && u.password === password);
-    
-    // If not found in regular users, check pending owners
-    if (!user) {
-        user = pendingOwners.find(u => u.email === email && u.password === password);
-        if (user) {
-            if (user.approved) {
-                // Move from pending to regular users if approved
-                users.push(user);
-                pendingOwners = pendingOwners.filter(u => u.email !== email);
-                localStorage.setItem('amviewUsers', JSON.stringify(users));
-                localStorage.setItem('pendingOwners', JSON.stringify(pendingOwners));
-            } else {
-                showNotification('Your movie owner account is pending admin approval.', 'error');
-                return false;
-            }
-        }
-    }
-    
-    if (user) {
-        // Update last login
-        user.lastLogin = new Date().toISOString();
-        localStorage.setItem('amviewUsers', JSON.stringify(users));
-        
-        currentUser = user;
-        localStorage.setItem('currentUser', JSON.stringify(currentUser));
-        
-        showAppropriateInterface();
-        showNotification('Login successful!', 'success');
-        return true;
-    } else {
-        showNotification('Invalid email or password. Please try again.', 'error');
-        return false;
-    }
-}
-
-// Show appropriate interface based on user role
-function showAppropriateInterface() {
-    if (!currentUser) return;
-    
-    loginModal.classList.remove('active');
-    loginPage.classList.add('hidden');
-    
-    if (currentUser.role === 'user') {
-        userInterface.classList.remove('hidden');
-        ownerInterface.classList.add('hidden');
-        adminInterface.classList.add('hidden');
-        
-        // Update user info
-        document.getElementById('user-avatar').textContent = currentUser.name.charAt(0).toUpperCase();
-        document.getElementById('user-fullname').textContent = currentUser.name;
-        
-        // Load user content
-        loadHomePage();
-        initPhase2Features();
-    } else if (currentUser.role === 'owner') {
-        userInterface.classList.add('hidden');
-        ownerInterface.classList.remove('hidden');
-        adminInterface.classList.add('hidden');
-        
-        // Update owner info
-        document.getElementById('owner-fullname').textContent = currentUser.name;
-        
-        // Load owner dashboard
-        loadOwnerDashboard();
-    } else if (currentUser.role === 'admin') {
-        userInterface.classList.add('hidden');
-        ownerInterface.classList.add('hidden');
-        adminInterface.classList.remove('hidden');
-        
-        // Load admin content
-        loadOwnerApprovals();
-        loadMovieApprovals();
-    }
-}
-
-// Logout function
-function logout() {
-    currentUser = null;
-    localStorage.removeItem('currentUser');
-    userInterface.classList.add('hidden');
-    ownerInterface.classList.add('hidden');
-    adminInterface.classList.add('hidden');
-    loginPage.classList.remove('hidden');
-    
-    // Reset login form
-    if (loginForm) loginForm.reset();
-    
-    // Show notification
-    showNotification('You have been logged out successfully.', 'success');
+    });
 }
 
 // Load trending movies on login page
 function loadTrendingMoviesOnLogin() {
-    const trendingMovies = movies.filter(movie => movie.trending);
-    const container = document.getElementById('trending-login');
-    if (!container) return;
+    const trendingContainer = document.getElementById('trending-login');
+    if (!trendingContainer) return;
     
-    container.innerHTML = '';
+    const trendingMovies = movies.filter(movie => movie.trending).slice(0, 8);
     
+    trendingContainer.innerHTML = '';
     trendingMovies.forEach(movie => {
         const movieCard = document.createElement('div');
         movieCard.className = 'trending-card';
+        movieCard.setAttribute('data-movie-id', movie.id);
+        
         movieCard.innerHTML = `
             <img src="${movie.poster}" alt="${movie.title}" class="trending-poster">
             <div class="trending-info">
@@ -7132,781 +8132,31 @@ function loadTrendingMoviesOnLogin() {
                 </div>
             </div>
         `;
-        container.appendChild(movieCard);
+        
+        trendingContainer.appendChild(movieCard);
     });
-}
-
-// Load home page content
-function loadHomePage() {
-    console.log('Loading home page...');
-    
-    // Load trending movies (always show trending, not filtered by category)
-    const trendingMovies = movies.filter(movie => movie.trending);
-    renderMovieGrid('trending-movies', trendingMovies);
-    
-    // Load new releases (always show new releases, not filtered by category)
-    loadNewReleases();
-    
-    // Initialize categories (but don't show any movies until a category is clicked)
-    initCategories();
-    
-    // Generate recommendations
-    generateRecommendations();
-    
-    // Initialize the category section to show the instruction message
-    const categoryMoviesGrid = document.getElementById('category-movies');
-    const noCategorySelected = document.getElementById('no-category-selected');
-    const categoryResultsInfo = document.getElementById('category-results-info');
-    
-    if (categoryMoviesGrid) {
-        categoryMoviesGrid.innerHTML = '';
-    }
-    if (noCategorySelected) {
-        noCategorySelected.style.display = 'block';
-    }
-    if (categoryResultsInfo) {
-        categoryResultsInfo.innerHTML = '';
-    }
-}
-
-// Add categories functionality
-function initCategories() {
-    const categories = document.querySelectorAll('.category');
-    const categoryMoviesGrid = document.getElementById('category-movies');
-    const noCategorySelected = document.getElementById('no-category-selected');
-    
-    // Initially hide the category movies grid and show the instruction message
-    if (categoryMoviesGrid) {
-        categoryMoviesGrid.innerHTML = '';
-    }
-    if (noCategorySelected) {
-        noCategorySelected.style.display = 'block';
-    }
-    
-    categories.forEach(category => {
-        category.addEventListener('click', function() {
-            // Remove active class from all categories
-            categories.forEach(cat => cat.classList.remove('active'));
-            // Add active class to clicked category
-            this.classList.add('active');
-            
-            const categoryName = this.textContent.toLowerCase();
-            filterMoviesByCategory(categoryName);
-        });
-    });
-}
-
-function filterMoviesByCategory(category) {
-    // Remove active class from all categories
-    const categories = document.querySelectorAll('.category');
-    categories.forEach(cat => cat.classList.remove('active'));
-    
-    // Add active class to clicked category
-    const clickedCategory = Array.from(categories).find(cat => 
-        cat.textContent.toLowerCase() === category
-    );
-    if (clickedCategory) {
-        clickedCategory.classList.add('active');
-    }
-    
-    // Get the category results elements
-    const categoryMoviesGrid = document.getElementById('category-movies');
-    const noCategorySelected = document.getElementById('no-category-selected');
-    const categoryResultsInfo = document.getElementById('category-results-info');
-    
-    if (!categoryMoviesGrid || !noCategorySelected) return;
-    
-    if (category === 'all') {
-        // Show ALL movies when "All" is selected
-        if (movies.length === 0) {
-            categoryMoviesGrid.innerHTML = '';
-            categoryMoviesGrid.innerHTML = `
-                <div style="grid-column: 1 / -1; text-align: center; padding: 40px;">
-                    <h3>No movies available</h3>
-                    <p>Check back later for new movies</p>
-                </div>
-            `;
-            noCategorySelected.style.display = 'none';
-        } else {
-            // Show all movies
-            window.renderMovieGrid('category-movies', movies);
-            noCategorySelected.style.display = 'none';
-            
-            // Update results info
-            if (categoryResultsInfo) {
-                categoryResultsInfo.innerHTML = `
-                    <h3 style="color: var(--text); margin-bottom: 10px;">All Movies (${movies.length} total)</h3>
-                    <p style="color: var(--text-secondary);">Showing all available movies</p>
-                `;
-            }
-        }
-    } else {
-        // Filter movies by the selected category
-        const filteredMovies = movies.filter(movie => {
-            if (!movie.genre) return false;
-            const movieGenre = movie.genre.toLowerCase();
-            return movieGenre.includes(category) || 
-                   (category === 'sci-fi' && movieGenre.includes('scifi')) ||
-                   (category === 'sci-fi' && movieGenre.includes('science fiction'));
-        });
-        
-        // Hide the "select category" message
-        noCategorySelected.style.display = 'none';
-        
-        if (filteredMovies.length === 0) {
-            // No movies found in this category
-            categoryMoviesGrid.innerHTML = '';
-            categoryMoviesGrid.innerHTML = `
-                <div style="grid-column: 1 / -1; text-align: center; padding: 40px;">
-                    <i class="fas fa-search" style="font-size: 3rem; margin-bottom: 20px; opacity: 0.5;"></i>
-                    <h3>No movies found in "${category}"</h3>
-                    <p>Try selecting a different category</p>
-                </div>
-            `;
-            
-            if (categoryResultsInfo) {
-                categoryResultsInfo.innerHTML = `
-                    <h3 style="color: var(--text); margin-bottom: 10px;">${category.charAt(0).toUpperCase() + category.slice(1)} Movies</h3>
-                    <p style="color: var(--text-secondary);">No movies found in this category</p>
-                `;
-            }
-        } else {
-            // Show filtered movies
-            window.renderMovieGrid('category-movies', filteredMovies);
-            
-            // Update results info
-            if (categoryResultsInfo) {
-                categoryResultsInfo.innerHTML = `
-                    <h3 style="color: var(--text); margin-bottom: 10px;">${category.charAt(0).toUpperCase() + category.slice(1)} Movies (${filteredMovies.length} found)</h3>
-                    <p style="color: var(--text-secondary);">Browse movies in ${category} genre</p>
-                `;
-            }
-        }
-    }
-}
-
-// Enhanced function to load new releases
-function loadNewReleases() {
-    // Get movies marked as new, sorted by addition date (newest first)
-    const newReleases = movies
-        .filter(movie => movie.new)
-        .sort((a, b) => {
-            // Sort by addedDate if available, otherwise by ID (newer first)
-            if (a.addedDate && b.addedDate) {
-                return new Date(b.addedDate) - new Date(a.addedDate);
-            }
-            return b.id - a.id;
-        });
-    
-    renderMovieGrid('new-releases', newReleases);
-}
-
-// Load browse page content
-function loadBrowsePage() {
-    renderMovieGrid('browse-movies', movies);
-}
-
-// Load my list page content
-function loadMyListPage() {
-    const myListMovies = movies.filter(movie => myList.includes(movie.id));
-    renderMovieGrid('my-list-movies', myListMovies, true);
-}
-
-// Load owner dashboard
-function loadOwnerDashboard() {
-    const ownerMovies = movies.filter(movie => movie.owner === currentUser.email);
-    const approvedMovies = ownerMovies.filter(movie => movie.status === 'approved');
-    const pendingMovies = ownerMovies.filter(movie => movie.status === 'pending');
-    const rejectedMovies = ownerMovies.filter(movie => movie.status === 'rejected');
-    
-    document.getElementById('owner-total-movies').textContent = ownerMovies.length;
-    document.getElementById('owner-approved-movies').textContent = approvedMovies.length;
-    document.getElementById('owner-pending-movies').textContent = pendingMovies.length;
-    document.getElementById('owner-rejected-movies').textContent = rejectedMovies.length;
-}
-
-// Load owner status page
-function loadOwnerStatus() {
-    const statusList = document.getElementById('upload-status-list');
-    if (!statusList) return;
-    
-    statusList.innerHTML = '';
-    
-    const ownerMovies = movies.filter(movie => movie.owner === currentUser.email);
-    
-    if (ownerMovies.length === 0) {
-        statusList.innerHTML = '<p>No movies uploaded yet.</p>';
-        return;
-    }
-    
-    ownerMovies.forEach(movie => {
-        const statusItem = document.createElement('div');
-        statusItem.className = 'status-item';
-        
-        let statusClass = '';
-        let statusText = '';
-        
-        switch(movie.status) {
-            case 'pending':
-                statusClass = 'status-pending';
-                statusText = 'Pending Approval';
-                break;
-            case 'processing':
-                statusClass = 'status-processing';
-                statusText = 'Processing';
-                break;
-            case 'approved':
-                statusClass = 'status-approved';
-                statusText = 'Approved';
-                break;
-            case 'rejected':
-                statusClass = 'status-rejected';
-                statusText = 'Rejected';
-                break;
-        }
-        
-        statusItem.innerHTML = `
-            <div>
-                <h4>${movie.title}</h4>
-                <p>Uploaded: ${new Date(movie.addedDate).toLocaleDateString()}</p>
-            </div>
-            <div class="status-badge ${statusClass}">${statusText}</div>
-        `;
-        
-        statusList.appendChild(statusItem);
-    });
-}
-
-// Load owner movies page
-function loadOwnerMovies() {
-    const moviesGrid = document.getElementById('owner-movies-grid');
-    if (!moviesGrid) return;
-    
-    moviesGrid.innerHTML = '';
-    
-    const ownerMovies = movies.filter(movie => movie.owner === currentUser.email);
-    
-    if (ownerMovies.length === 0) {
-        moviesGrid.innerHTML = '<p>No movies uploaded yet.</p>';
-        return;
-    }
-    
-    ownerMovies.forEach(movie => {
-        const movieCard = document.createElement('div');
-        movieCard.className = 'movie-card';
-        
-        movieCard.innerHTML = `
-            <div class="movie-card-inner">
-                <img src="${movie.poster}" alt="${movie.title}" class="movie-poster">
-                <div class="movie-info">
-                    <h3 class="movie-title">${movie.title}</h3>
-                    <div class="movie-meta">
-                        <span>${movie.year}</span>
-                        <span class="movie-rating"><i class="fas fa-star"></i> ${movie.rating}</span>
-                    </div>
-                    <div class="movie-actions">
-                        <button class="btn-primary preview-movie" data-movie-id="${movie.id}">Preview</button>
-                    </div>
-                </div>
-            </div>
-        `;
-        
-        // Add click event to preview movie
-        const previewBtn = movieCard.querySelector('.preview-movie');
-        previewBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            previewMovie(movie.id);
-        });
-        
-        moviesGrid.appendChild(movieCard);
-    });
-}
-
-// Upload movie function
-function uploadMovie() {
-    const title = document.getElementById('movie-title').value;
-    const year = parseInt(document.getElementById('release-year').value);
-    const genre = document.getElementById('genre').value;
-    const language = document.getElementById('language').value;
-    const description = document.getElementById('description').value;
-    const duration = parseInt(document.getElementById('duration').value);
-    const rating = parseFloat(document.getElementById('rating').value);
-    const posterUrl = document.getElementById('poster-url').value;
-    const movieFile = document.getElementById('movie-file').files[0];
-    
-    // Validate form data
-    const errors = validateMovieForm({
-        title, year, genre, language, description, duration, rating
-    });
-    
-    if (errors.length > 0) {
-        showNotification('Please fix the following errors: ' + errors.join(', '), 'error');
-        return;
-    }
-    
-    if (!movieFile) {
-        showNotification('Please select a movie file to upload.', 'error');
-        return;
-    }
-    
-    // Create new movie object
-    const newMovie = {
-        id: movies.length > 0 ? Math.max(...movies.map(m => m.id)) + 1 : 1,
-        title,
-        year,
-        rating,
-        genre,
-        language,
-        description,
-        duration,
-        poster: posterUrl || 'https://images.unsplash.com/photo-1485846234645-a62644f84728?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2059&q=80',
-        featured: false,
-        trending: false,
-        new: true,
-        downloadable: true,
-        videoUrl: URL.createObjectURL(movieFile), // Create a local URL for the uploaded file
-        addedDate: new Date().toISOString(),
-        owner: currentUser.email,
-        status: 'pending' // Requires admin approval
-    };
-    
-    // Add to pending movies for admin approval
-    pendingMovies.push(newMovie);
-    localStorage.setItem('pendingMovies', JSON.stringify(pendingMovies));
-    
-    // Reset form
-    uploadMovieForm.reset();
-    movieFileName.textContent = 'No file chosen';
-    
-    // Show success message
-    showNotification('Movie uploaded successfully! Waiting for admin approval.', 'success');
-    
-    // Refresh owner dashboard
-    loadOwnerDashboard();
-}
-
-// Validate movie form data
-function validateMovieForm(formData) {
-    const errors = [];
-    
-    if (!formData.title || formData.title.trim().length < 2) {
-        errors.push('Title must be at least 2 characters long');
-    }
-    
-    if (!formData.year || formData.year < 1900 || formData.year > new Date().getFullYear() + 2) {
-        errors.push('Please enter a valid release year');
-    }
-    
-    if (!formData.genre) {
-        errors.push('Please select a genre');
-    }
-    
-    if (!formData.description || formData.description.trim().length < 10) {
-        errors.push('Description must be at least 10 characters long');
-    }
-    
-    if (!formData.duration || formData.duration < 1) {
-        errors.push('Please enter a valid duration');
-    }
-    
-    if (!formData.rating || formData.rating < 0 || formData.rating > 10) {
-        errors.push('Rating must be between 0 and 10');
-    }
-    
-    return errors;
-}
-
-// Preview movie function
-function previewMovie(movieId) {
-    const movie = movies.find(m => m.id === movieId);
-    if (!movie) return;
-    
-    if (videoPlayer && videoPlayerOverlay && videoTitle) {
-        videoPlayer.src = movie.videoUrl;
-        videoTitle.textContent = `Preview: ${movie.title}`;
-        videoPlayerOverlay.classList.add('active');
-        
-        videoPlayer.play().catch(error => {
-            console.error('Error playing video:', error);
-            showNotification('Error playing video. Please try again.', 'error');
-        });
-    }
-}
-
-// Close video player
-function closeVideoPlayer() {
-    if (videoPlayer) {
-        videoPlayer.pause();
-        videoPlayer.currentTime = 0;
-        videoPlayer.src = '';
-    }
-    if (videoPlayerOverlay) {
-        videoPlayerOverlay.classList.remove('active');
-    }
-}
-
-// Load owner approvals for admin
-function loadOwnerApprovals() {
-    const approvalList = document.getElementById('owner-approval-list');
-    if (!approvalList) return;
-    
-    approvalList.innerHTML = '';
-    
-    if (pendingOwners.length === 0) {
-        approvalList.innerHTML = '<p>No pending owner approvals.</p>';
-        return;
-    }
-    
-    pendingOwners.forEach(owner => {
-        const approvalItem = document.createElement('div');
-        approvalItem.className = 'approval-item';
-        
-        approvalItem.innerHTML = `
-            <div>
-                <h4>${owner.name}</h4>
-                <p>Email: ${owner.email}</p>
-                <p>Payment Method: ${owner.paymentMethod} - ${owner.paymentProvider}</p>
-                <p>Joined: ${new Date(owner.joinDate).toLocaleDateString()}</p>
-            </div>
-            <div class="approval-actions">
-                <button class="btn-primary approve-owner" data-email="${owner.email}">Approve</button>
-                <button class="btn-secondary reject-owner" data-email="${owner.email}">Reject</button>
-            </div>
-        `;
-        
-        approvalList.appendChild(approvalItem);
-    });
-    
-    // Add event listeners for approval buttons
-    document.querySelectorAll('.approve-owner').forEach(button => {
-        button.addEventListener('click', function() {
-            approveOwner(this.dataset.email);
-        });
-    });
-    
-    document.querySelectorAll('.reject-owner').forEach(button => {
-        button.addEventListener('click', function() {
-            rejectOwner(this.dataset.email);
-        });
-    });
-}
-
-// Load movie approvals for admin
-function loadMovieApprovals() {
-    const approvalList = document.getElementById('movie-approval-list');
-    if (!approvalList) return;
-    
-    approvalList.innerHTML = '';
-    
-    if (pendingMovies.length === 0) {
-        approvalList.innerHTML = '<p>No pending movie approvals.</p>';
-        return;
-    }
-    
-    pendingMovies.forEach(movie => {
-        const approvalItem = document.createElement('div');
-        approvalItem.className = 'approval-item';
-        
-        approvalItem.innerHTML = `
-            <div>
-                <h4>${movie.title}</h4>
-                <p>Genre: ${movie.genre} | Year: ${movie.year}</p>
-                <p>Owner: ${movie.owner}</p>
-                <p>Uploaded: ${new Date(movie.addedDate).toLocaleDateString()}</p>
-            </div>
-            <div class="approval-actions">
-                <button class="btn-primary approve-movie" data-movie-id="${movie.id}">Approve</button>
-                <button class="btn-secondary reject-movie" data-movie-id="${movie.id}">Reject</button>
-                <button class="btn-secondary preview-movie-admin" data-movie-id="${movie.id}">Preview</button>
-            </div>
-        `;
-        
-        approvalList.appendChild(approvalItem);
-    });
-    
-    // Add event listeners for approval buttons
-    document.querySelectorAll('.approve-movie').forEach(button => {
-        button.addEventListener('click', function() {
-            approveMovie(parseInt(this.dataset.movieId));
-        });
-    });
-    
-    document.querySelectorAll('.reject-movie').forEach(button => {
-        button.addEventListener('click', function() {
-            rejectMovie(parseInt(this.dataset.movieId));
-        });
-    });
-    
-    document.querySelectorAll('.preview-movie-admin').forEach(button => {
-        button.addEventListener('click', function() {
-            const movie = pendingMovies.find(m => m.id === parseInt(this.dataset.movieId));
-            if (movie) {
-                previewMovie(movie.id);
-            }
-        });
-    });
-}
-
-// Approve owner account
-function approveOwner(email) {
-    const ownerIndex = pendingOwners.findIndex(owner => owner.email === email);
-    if (ownerIndex === -1) return;
-    
-    const owner = pendingOwners[ownerIndex];
-    owner.approved = true;
-    
-    // Move from pending to regular users
-    users.push(owner);
-    pendingOwners.splice(ownerIndex, 1);
-    
-    // Update localStorage
-    localStorage.setItem('amviewUsers', JSON.stringify(users));
-    localStorage.setItem('pendingOwners', JSON.stringify(pendingOwners));
-    
-    showNotification('Owner account approved successfully!', 'success');
-    loadOwnerApprovals();
-}
-
-// Reject owner account
-function rejectOwner(email) {
-    const ownerIndex = pendingOwners.findIndex(owner => owner.email === email);
-    if (ownerIndex === -1) return;
-    
-    pendingOwners.splice(ownerIndex, 1);
-    
-    // Update localStorage
-    localStorage.setItem('pendingOwners', JSON.stringify(pendingOwners));
-    
-    showNotification('Owner account rejected.', 'success');
-    loadOwnerApprovals();
-}
-
-// Approve movie
-function approveMovie(movieId) {
-    const movieIndex = pendingMovies.findIndex(movie => movie.id === movieId);
-    if (movieIndex === -1) return;
-    
-    const movie = pendingMovies[movieIndex];
-    movie.status = 'approved';
-    
-    // Move from pending to regular movies
-    movies.push(movie);
-    pendingMovies.splice(movieIndex, 1);
-    
-    // Update localStorage
-    localStorage.setItem('amviewMovies', JSON.stringify(movies));
-    localStorage.setItem('pendingMovies', JSON.stringify(pendingMovies));
-    
-    showNotification('Movie approved successfully!', 'success');
-    loadMovieApprovals();
-}
-
-// Reject movie
-function rejectMovie(movieId) {
-    const movieIndex = pendingMovies.findIndex(movie => movie.id === movieId);
-    if (movieIndex === -1) return;
-    
-    const movie = pendingMovies[movieIndex];
-    movie.status = 'rejected';
-    
-    // Move from pending to regular movies but mark as rejected
-    movies.push(movie);
-    pendingMovies.splice(movieIndex, 1);
-    
-    // Update localStorage
-    localStorage.setItem('amviewMovies', JSON.stringify(movies));
-    localStorage.setItem('pendingMovies', JSON.stringify(pendingMovies));
-    
-    showNotification('Movie rejected.', 'success');
-    loadMovieApprovals();
-}
-
-// Show notification
-function showNotification(message, type = 'success') {
-    if (!notification) return;
-    
-    notification.textContent = message;
-    notification.className = `notification ${type}`;
-    notification.classList.add('show');
-    
-    setTimeout(() => {
-        notification.classList.remove('show');
-    }, 3000);
 }
 
 // Initialize mobile menu
 function initMobileMenu() {
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const nav = document.querySelector('nav ul');
+    const navMenu = document.querySelector('nav ul');
     
-    if (mobileMenuBtn && nav) {
-        mobileMenuBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            const isActive = nav.classList.contains('active');
-            
-            if (!isActive) {
-                createMobileNavStructure(nav);
-            } else {
-                const mobileSearch = nav.querySelector('.mobile-search');
-                const mobileUserMenu = nav.querySelector('.mobile-user-menu');
-                if (mobileSearch) mobileSearch.remove();
-                if (mobileUserMenu) mobileUserMenu.remove();
-            }
-            
-            nav.classList.toggle('active');
+    if (mobileMenuBtn && navMenu) {
+        mobileMenuBtn.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
         
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('nav') && !e.target.closest('.mobile-menu-btn')) {
-                nav.classList.remove('active');
-                const mobileSearch = nav.querySelector('.mobile-search');
-                const mobileUserMenu = nav.querySelector('.mobile-user-menu');
-                if (mobileSearch) mobileSearch.remove();
-                if (mobileUserMenu) mobileUserMenu.remove();
-            }
-        });
-
-        // Close mobile menu when clicking on navigation links
-        nav.addEventListener('click', function(e) {
-            if (e.target.classList.contains('nav-link') || e.target.closest('.nav-link')) {
-                nav.classList.remove('active');
-                const mobileSearch = nav.querySelector('.mobile-search');
-                const mobileUserMenu = nav.querySelector('.mobile-user-menu');
-                if (mobileSearch) mobileSearch.remove();
-                if (mobileUserMenu) mobileUserMenu.remove();
-            }
-        });
-    }
-}
-
-// Create mobile navigation structure
-function createMobileNavStructure(nav) {
-    // Clear existing mobile elements first
-    const existingMobileSearch = nav.querySelector('.mobile-search');
-    const existingMobileUser = nav.querySelector('.mobile-user-menu');
-    if (existingMobileSearch) existingMobileSearch.remove();
-    if (existingMobileUser) existingMobileUser.remove();
-    
-    // Create search container for mobile
-    const mobileSearch = document.createElement('div');
-    mobileSearch.className = 'search-container mobile-search';
-    mobileSearch.innerHTML = `
-        <input type="text" class="search-input" placeholder="Search movies...">
-        <div class="search-results"></div>
-    `;
-    
-    // Create user menu for mobile
-    const mobileUserMenu = document.createElement('div');
-    mobileUserMenu.className = 'user-menu mobile-user-menu';
-    const userName = currentUser ? currentUser.name : 'User';
-    const userInitial = currentUser ? currentUser.name.charAt(0).toUpperCase() : 'U';
-    
-    mobileUserMenu.innerHTML = `
-        <div class="user-avatar">${userInitial}</div>
-        <span>${userName}</span>
-        <div class="user-dropdown">
-            <a href="#" class="nav-link" data-page="profile">Profile</a>
-            <a href="#" class="nav-link" data-page="my-list">My List</a>
-            <a href="#" class="nav-link" data-page="downloads">Downloads</a>
-            <a href="#" class="admin-logout-btn">Logout</a>
-        </div>
-    `;
-    
-    // Insert mobile elements at the beginning of nav
-    nav.insertBefore(mobileSearch, nav.firstChild);
-    nav.insertBefore(mobileUserMenu, nav.firstChild);
-    
-    // Re-initialize event listeners for mobile elements
-    initMobileSearch(mobileSearch);
-    initMobileUserMenu(mobileUserMenu);
-}
-
-// Initialize mobile search functionality
-function initMobileSearch(searchContainer) {
-    const searchInput = searchContainer.querySelector('.search-input');
-    const searchResults = searchContainer.querySelector('.search-results');
-    
-    if (searchInput && searchResults) {
-        searchInput.addEventListener('input', function() {
-            const query = this.value.toLowerCase().trim();
-            
-            if (query.length === 0) {
-                searchResults.classList.remove('active');
-                return;
-            }
-            
-            const filteredMovies = movies.filter(movie => 
-                movie.title.toLowerCase().includes(query) ||
-                movie.genre.toLowerCase().includes(query) ||
-                movie.description.toLowerCase().includes(query)
-            );
-            
-            displaySearchResults(filteredMovies, searchResults);
-        });
-        
-        // Close search results when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('.search-container')) {
-                searchResults.classList.remove('active');
-            }
-        });
-    }
-}
-
-// Initialize mobile user menu
-function initMobileUserMenu(userMenu) {
-    const userDropdown = userMenu.querySelector('.user-dropdown');
-    
-    if (userMenu && userDropdown) {
-        userMenu.addEventListener('click', function(e) {
-            e.stopPropagation();
-            userDropdown.classList.toggle('active');
-        });
-        
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('.mobile-user-menu')) {
-                userDropdown.classList.remove('active');
-            }
-        });
-    }
-}
-
-// Display search results
-function displaySearchResults(results, searchResultsContainer) {
-    if (!searchResultsContainer) return;
-    
-    searchResultsContainer.innerHTML = '';
-    
-    if (results.length === 0) {
-        searchResultsContainer.innerHTML = '<div class="search-result-item">No results found</div>';
-    } else {
-        results.forEach(movie => {
-            const resultItem = document.createElement('div');
-            resultItem.className = 'search-result-item';
-            resultItem.innerHTML = `
-                <div style="display: flex; align-items: center; gap: 12px;">
-                    <img src="${movie.poster}" alt="${movie.title}" style="width: 40px; height: 60px; object-fit: cover; border-radius: 6px;">
-                    <div>
-                        <strong>${movie.title}</strong>
-                        <div style="font-size: 0.8rem; color: var(--text-secondary);">
-                            ${movie.year} • ${movie.genre} • ⭐ ${movie.rating}
-                        </div>
-                    </div>
-                </div>
-            `;
-            resultItem.addEventListener('click', function() {
-                showMovieDetails(movie.id);
-                searchResultsContainer.classList.remove('active');
-                const searchInput = searchResultsContainer.parentElement.querySelector('.search-input');
-                if (searchInput) searchInput.value = '';
+        // Close menu when clicking on a link
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
             });
-            searchResultsContainer.appendChild(resultItem);
         });
     }
-    
-    searchResultsContainer.classList.add('active');
 }
 
 // Initialize search functionality
@@ -7920,232 +8170,796 @@ function initSearch() {
             
             if (query.length === 0) {
                 searchResults.classList.remove('active');
+                searchResults.innerHTML = '';
                 return;
             }
             
-            const filteredMovies = movies.filter(movie => 
+            // Apply advanced filters if set
+            let filteredMovies = movies;
+            
+            if (searchFilters.genres.length > 0) {
+                filteredMovies = filteredMovies.filter(movie =>
+                    searchFilters.genres.some(genre => 
+                        movie.genre.toLowerCase().includes(genre)
+                    )
+                );
+            }
+            
+            if (searchFilters.minRating && searchFilters.minRating !== '0') {
+                filteredMovies = filteredMovies.filter(movie => 
+                    movie.rating >= parseFloat(searchFilters.minRating)
+                );
+            }
+            
+            // Filter by search query
+            const results = filteredMovies.filter(movie => 
                 movie.title.toLowerCase().includes(query) ||
                 movie.genre.toLowerCase().includes(query) ||
                 movie.description.toLowerCase().includes(query)
-            );
+            ).slice(0, 10);
             
-            displaySearchResults(filteredMovies, searchResults);
+            displaySearchResults(results, searchResults);
+            
+            if (results.length > 0) {
+                searchResults.classList.add('active');
+            } else {
+                searchResults.classList.remove('active');
+            }
         });
         
         // Close search results when clicking outside
         document.addEventListener('click', function(e) {
-            if (!e.target.closest('.search-container')) {
+            if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
                 searchResults.classList.remove('active');
             }
         });
     }
-    
-    // Also initialize mobile search if it exists
-    const mobileSearch = document.querySelector('.mobile-search .search-input');
-    if (mobileSearch) {
-        mobileSearch.addEventListener('input', function() {
-            const query = this.value.toLowerCase().trim();
-            const mobileResults = this.parentElement.querySelector('.search-results');
-            
-            if (query.length === 0) {
-                if (mobileResults) mobileResults.classList.remove('active');
-                return;
-            }
-            
-            const filteredMovies = movies.filter(movie => 
-                movie.title.toLowerCase().includes(query) ||
-                movie.genre.toLowerCase().includes(query) ||
-                movie.description.toLowerCase().includes(query)
-            );
-            
-            if (mobileResults) {
-                displaySearchResults(filteredMovies, mobileResults);
-            }
-        });
-    }
 }
 
-// Initialize video player
-function initVideoPlayer() {
-    // Watch Now button on movie details page
-    const watchNowBtn = document.getElementById('watch-now-btn');
-    if (watchNowBtn) {
-        watchNowBtn.addEventListener('click', function() {
-            const movieId = this.dataset.movieId;
-            const movie = movies.find(m => m.id === parseInt(movieId));
-            
-            if (movie && movie.videoUrl) {
-                playVideo(movie.videoUrl, movie.title);
-            } else {
-                showNotification('Video not available for this movie.', 'error');
-            }
-        });
-    }
+// Display search results
+function displaySearchResults(results, container) {
+    if (!container) return;
     
-    // Add progress tracking
-    if (videoPlayer) {
-        // Track progress every 5 seconds
-        videoPlayer.addEventListener('timeupdate', function() {
-            if (videoPlayer.currentTime > 10) { // Only track after 10 seconds
-                const movieId = getCurrentMovieId();
-                if (movieId) {
-                    const progress = {
-                        currentTime: videoPlayer.currentTime,
-                        duration: videoPlayer.duration,
-                        percentage: (videoPlayer.currentTime / videoPlayer.duration) * 100,
-                        timestamp: new Date().toISOString()
-                    };
-                    watchProgress[movieId] = progress;
-                    localStorage.setItem('watchProgress', JSON.stringify(watchProgress));
-                }
-            }
-        });
-
-        // Resume from last position
-        videoPlayer.addEventListener('loadedmetadata', function() {
-            const movieId = getCurrentMovieId();
-            if (movieId && watchProgress[movieId] && watchProgress[movieId].percentage < 95) {
-                const progress = watchProgress[movieId];
-                videoPlayer.currentTime = progress.currentTime;
-                
-                // Show resume prompt
-                showResumePrompt(movieId, progress);
-            }
-        });
-    }
-    
-    // Initialize Phase 1 features
-    initSkipIntro();
-    initQualitySelector();
-    
-    // Keyboard controls
-    document.addEventListener('keydown', function(e) {
-        if (videoPlayerOverlay && videoPlayerOverlay.classList.contains('active')) {
-            switch(e.key) {
-                case ' ':
-                case 'Spacebar':
-                    e.preventDefault();
-                    if (videoPlayer.paused) {
-                        videoPlayer.play();
-                    } else {
-                        videoPlayer.pause();
-                    }
-                    break;
-                case 'Escape':
-                    e.preventDefault();
-                    closeVideoPlayer();
-                    break;
-                case 'ArrowLeft':
-                    e.preventDefault();
-                    videoPlayer.currentTime = Math.max(0, videoPlayer.currentTime - 10);
-                    break;
-                case 'ArrowRight':
-                    e.preventDefault();
-                    videoPlayer.currentTime = Math.min(videoPlayer.duration, videoPlayer.currentTime + 10);
-                    break;
-                case 'm':
-                case 'M':
-                    e.preventDefault();
-                    videoPlayer.muted = !videoPlayer.muted;
-                    break;
-            }
-        }
-    });
-}
-
-// Enhanced video playback function with fallback
-function playVideo(videoUrl, title) {
-    if (!videoPlayer || !videoPlayerOverlay) {
-        showNotification('Video player not available.', 'error');
+    if (results.length === 0) {
+        container.innerHTML = '<div class="search-result-item">No results found</div>';
         return;
     }
     
-    console.log('Attempting to play video:', videoUrl);
+    container.innerHTML = results.map(movie => `
+        <div class="search-result-item" data-movie-id="${movie.id}">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <img src="${movie.poster}" alt="${movie.title}" style="width: 40px; height: 60px; object-fit: cover; border-radius: 4px;">
+                <div>
+                    <strong>${movie.title}</strong>
+                    <div style="font-size: 0.8rem; color: var(--text-secondary);">
+                        ${movie.year} • ${movie.genre} • <i class="fas fa-star"></i> ${movie.rating}
+                    </div>
+                </div>
+            </div>
+        </div>
+    `).join('');
     
-    // Show loading state
-    showNotification('Loading video...', 'success');
-    
-    // Reset video player
-    videoPlayer.pause();
-    videoPlayer.currentTime = 0;
-    videoPlayer.volume = 1;
-    
-    // Set video source
-    videoPlayer.src = videoUrl;
-    videoPlayer.load();
-    
-    // Show video player
-    videoPlayerOverlay.classList.add('active');
-    
-    // Add movie title to video player
-    if (videoTitle) {
-        videoTitle.textContent = title;
-    }
-    
-    // Attempt to play
-    const playPromise = videoPlayer.play();
-    
-    if (playPromise !== undefined) {
-        playPromise.then(() => {
-            console.log('Video playback started successfully');
-            showNotification('Video playback started', 'success');
-        }).catch(error => {
-            console.error('Video play failed:', error);
-            showNotification('Click the play button to start video', 'error');
-            addManualPlayButton();
+    // Add click event to search result items
+    container.querySelectorAll('.search-result-item').forEach(item => {
+        item.addEventListener('click', function() {
+            const movieId = parseInt(this.dataset.movieId);
+            showMovieDetails(movieId);
+            container.classList.remove('active');
+            document.getElementById('search-input').value = '';
         });
-    }
-}
-
-// Add manual play button for browsers that block autoplay
-function addManualPlayButton() {
-    const videoControls = document.querySelector('.video-controls');
-    if (!videoControls) return;
-    
-    let manualPlayBtn = document.querySelector('.manual-play-btn');
-    if (!manualPlayBtn) {
-        manualPlayBtn = document.createElement('button');
-        manualPlayBtn.className = 'btn-primary manual-play-btn';
-        manualPlayBtn.textContent = 'Click to Play Video';
-        manualPlayBtn.style.margin = '10px';
-        manualPlayBtn.addEventListener('click', function() {
-            videoPlayer.play().catch(error => {
-                console.error('Manual play failed:', error);
-                showNotification('Video cannot be played. Please try another movie.', 'error');
-            });
-            this.remove();
-        });
-        videoControls.appendChild(manualPlayBtn);
-    }
+    });
 }
 
 // Initialize features section
 function initFeaturesSection() {
-    const featuresSection = document.querySelector('.features-section');
-    if (featuresSection) {
-        // Remove any hidden classes
-        featuresSection.classList.remove('hidden');
-        
-        // Initialize intersection observer for feature animations
-        const featureObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { 
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+    const features = document.querySelectorAll('.feature');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
         });
+    }, {
+        threshold: 0.1
+    });
+    
+    features.forEach(feature => {
+        observer.observe(feature);
+    });
+}
 
-        // Observe each feature
-        document.querySelectorAll('.feature').forEach((feature, index) => {
-            feature.style.transitionDelay = `${index * 0.2}s`;
-            featureObserver.observe(feature);
+// Initialize video player
+function initVideoPlayer() {
+    if (videoPlayer) {
+        videoPlayer.addEventListener('play', function() {
+            // Track play event
+            console.log('Video started playing');
+        });
+        
+        videoPlayer.addEventListener('pause', function() {
+            // Track pause event
+            console.log('Video paused');
+        });
+        
+        videoPlayer.addEventListener('ended', function() {
+            // Track completion
+            console.log('Video completed');
         });
     }
 }
-// Complete the renderMovieGrid function
+
+// Play video
+function playVideo(url, title) {
+    if (!videoPlayer || !videoPlayerOverlay) return;
+    
+    videoPlayer.src = url;
+    videoPlayer.load();
+    
+    if (videoTitle) {
+        videoTitle.textContent = title || 'Movie Preview';
+    }
+    
+    videoPlayerOverlay.classList.add('active');
+    videoPlayer.play();
+}
+
+// Close video player
+function closeVideoPlayer() {
+    if (videoPlayer) {
+        videoPlayer.pause();
+        videoPlayer.currentTime = 0;
+    }
+    
+    if (videoPlayerOverlay) {
+        videoPlayerOverlay.classList.remove('active');
+    }
+}
+
+// Show movie details
+function showMovieDetails(movieId) {
+    const movie = movies.find(m => m.id === movieId);
+    if (!movie) return;
+    
+    // Hide all pages and show movie details page
+    document.querySelectorAll('.page').forEach(page => page.classList.add('hidden'));
+    document.getElementById('movie-details-page').classList.remove('hidden');
+    
+    // Update movie details
+    document.getElementById('detail-title').textContent = movie.title;
+    document.getElementById('detail-year').textContent = movie.year;
+    document.getElementById('detail-rating').textContent = `${movie.rating}/10`;
+    document.getElementById('detail-duration').textContent = `${Math.floor(movie.duration / 60)}h ${movie.duration % 60}m`;
+    document.getElementById('detail-genre').textContent = movie.genre;
+    document.getElementById('detail-description').textContent = movie.description;
+    document.getElementById('detail-poster').src = movie.poster;
+    document.getElementById('detail-poster').alt = movie.title;
+    
+    // Set background for movie details page
+    const movieDetailsBg = document.querySelector('#movie-details-page .user-page-bg');
+    if (movieDetailsBg) {
+        movieDetailsBg.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('${movie.poster}')`;
+    }
+    
+    // Set movie background CSS variable
+    document.documentElement.style.setProperty('--movie-background', `url('${movie.poster}')`);
+    
+    // Update action buttons with movie ID
+    const watchBtn = document.getElementById('watch-now-btn');
+    const downloadBtn = document.getElementById('download-movie-btn');
+    const addToListBtn = document.getElementById('add-to-list-btn');
+    
+    if (watchBtn) {
+        watchBtn.dataset.movieId = movieId;
+        watchBtn.innerHTML = '<i class="fas fa-play"></i> Watch Now';
+        watchBtn.onclick = function(e) {
+            e.preventDefault();
+            if (currentUser && currentUser.subscriptionStatus === 'active') {
+                playVideo(movie.videoUrl, movie.title);
+            } else {
+                showNotification('Please subscribe to watch this movie', 'error');
+            }
+        };
+    }
+    
+    if (downloadBtn) {
+        downloadBtn.dataset.movieId = movieId;
+        downloadBtn.innerHTML = '<i class="fas fa-download"></i> Download';
+        downloadBtn.onclick = function(e) {
+            e.preventDefault();
+            if (currentUser && currentUser.subscriptionPlan !== 'basic') {
+                downloadMovie(movieId);
+            } else {
+                showNotification('Upgrade to Standard or Premium plan to download movies', 'error');
+            }
+        };
+    }
+    
+    if (addToListBtn) {
+        addToListBtn.dataset.movieId = movieId;
+        const isInList = myList.includes(movieId);
+        addToListBtn.innerHTML = isInList ? 
+            '<i class="fas fa-check"></i> In My List' : 
+            '<i class="fas fa-plus"></i> Add to My List';
+        addToListBtn.onclick = function(e) {
+            e.preventDefault();
+            toggleMovieInList(movieId);
+        };
+    }
+    
+    // Load cast (mock data for now)
+    loadCast(movieId);
+    
+    // Load reviews
+    loadReviews(movieId);
+}
+
+// Load cast for movie
+function loadCast(movieId) {
+    const castGrid = document.getElementById('cast-grid');
+    if (!castGrid) return;
+    
+    // Mock cast data - in a real app, this would come from an API
+    const cast = [
+        { name: 'Actor One', character: 'Main Character', photo: 'https://randomuser.me/api/portraits/men/32.jpg' },
+        { name: 'Actress Two', character: 'Supporting Role', photo: 'https://randomuser.me/api/portraits/women/44.jpg' },
+        { name: 'Actor Three', character: 'Villain', photo: 'https://randomuser.me/api/portraits/men/67.jpg' },
+        { name: 'Actress Four', character: 'Love Interest', photo: 'https://randomuser.me/api/portraits/women/68.jpg' }
+    ];
+    
+    castGrid.innerHTML = cast.map(person => `
+        <div class="cast-member">
+            <img src="${person.photo}" alt="${person.name}" class="cast-photo">
+            <h4>${person.name}</h4>
+            <p>${person.character}</p>
+        </div>
+    `).join('');
+}
+
+// Load reviews for movie
+function loadReviews(movieId) {
+    const reviewsList = document.getElementById('reviews-list');
+    const averageRating = document.querySelector('.rating-value');
+    const stars = document.querySelectorAll('.stars i');
+    const reviewCount = document.querySelector('.review-count');
+    const writeReviewBtn = document.querySelector('.write-review-btn');
+    
+    if (!reviewsList || !averageRating) return;
+    
+    const movieReviews = reviews[movieId] || [];
+    
+    // Update review count
+    if (reviewCount) {
+        reviewCount.textContent = `${movieReviews.length} reviews`;
+    }
+    
+    // Calculate average rating
+    let avgRating = 0;
+    if (movieReviews.length > 0) {
+        avgRating = movieReviews.reduce((sum, review) => sum + review.rating, 0) / movieReviews.length;
+    }
+    
+    // Update average rating display
+    averageRating.textContent = avgRating.toFixed(1);
+    
+    // Update stars
+    stars.forEach((star, index) => {
+        if (index < Math.floor(avgRating)) {
+            star.className = 'fas fa-star';
+        } else if (index < avgRating) {
+            star.className = 'fas fa-star-half-alt';
+        } else {
+            star.className = 'far fa-star';
+        }
+    });
+    
+    // Display reviews
+    if (movieReviews.length === 0) {
+        reviewsList.innerHTML = '<div class="no-reviews">No reviews yet. Be the first to review this movie!</div>';
+    } else {
+        reviewsList.innerHTML = movieReviews.map(review => `
+            <div class="review-item">
+                <div class="review-header">
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">${review.userName.charAt(0).toUpperCase()}</div>
+                        <div>
+                            <div><strong>${review.userName}</strong></div>
+                            <div class="review-rating">
+                                ${'★'.repeat(Math.floor(review.rating))}${'☆'.repeat(5 - Math.floor(review.rating))}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-date">${new Date(review.date).toLocaleDateString()}</div>
+                </div>
+                <div class="review-text">${review.text}</div>
+            </div>
+        `).join('');
+    }
+    
+    // Set up write review button
+    if (writeReviewBtn) {
+        writeReviewBtn.onclick = function() {
+            showWriteReviewModal(movieId);
+        };
+    }
+}
+
+// Show write review modal
+function showWriteReviewModal(movieId) {
+    const movie = movies.find(m => m.id === movieId);
+    if (!movie) return;
+    
+    // Create modal
+    const modal = document.createElement('div');
+    modal.className = 'review-modal';
+    modal.innerHTML = `
+        <div class="review-modal-content">
+            <div class="modal-header">
+                <h2>Review: ${movie.title}</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            
+            <div class="rating-selector">
+                <h4>Your Rating</h4>
+                <div class="star-rating" id="star-rating">
+                    <i class="far fa-star" data-value="1"></i>
+                    <i class="far fa-star" data-value="2"></i>
+                    <i class="far fa-star" data-value="3"></i>
+                    <i class="far fa-star" data-value="4"></i>
+                    <i class="far fa-star" data-value="5"></i>
+                </div>
+                <div class="rating-text" id="rating-text">Select a rating</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="review-text">Your Review</label>
+                <textarea id="review-text" rows="4" placeholder="Write your review here..."></textarea>
+            </div>
+            
+            <div class="form-actions">
+                <button class="btn-primary" id="submit-review">Submit Review</button>
+                <button class="btn-secondary" id="cancel-review">Cancel</button>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(modal);
+    
+    // Set up star rating interaction
+    const stars = modal.querySelectorAll('#star-rating i');
+    const ratingText = modal.querySelector('#rating-text');
+    let selectedRating = 0;
+    
+    stars.forEach(star => {
+        star.addEventListener('mouseover', function() {
+            const value = parseInt(this.dataset.value);
+            updateStarPreview(value);
+        });
+        
+        star.addEventListener('mouseout', function() {
+            updateStarPreview(selectedRating);
+        });
+        
+        star.addEventListener('click', function() {
+            selectedRating = parseInt(this.dataset.value);
+            updateStarPreview(selectedRating);
+        });
+    });
+    
+    function updateStarPreview(rating) {
+        stars.forEach(star => {
+            const value = parseInt(star.dataset.value);
+            if (value <= rating) {
+                star.className = 'fas fa-star';
+            } else {
+                star.className = 'far fa-star';
+            }
+        });
+        
+        const ratingTexts = ['Select a rating', 'Poor', 'Fair', 'Good', 'Very Good', 'Excellent'];
+        ratingText.textContent = ratingTexts[rating];
+    }
+    
+    // Set up modal functionality
+    const closeModal = modal.querySelector('.close-modal');
+    const cancelBtn = modal.querySelector('#cancel-review');
+    const submitBtn = modal.querySelector('#submit-review');
+    
+    const closeReviewModal = function() {
+        modal.remove();
+    };
+    
+    if (closeModal) closeModal.addEventListener('click', closeReviewModal);
+    if (cancelBtn) cancelBtn.addEventListener('click', closeReviewModal);
+    
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeReviewModal();
+        }
+    });
+    
+    if (submitBtn) {
+        submitBtn.addEventListener('click', function() {
+            const reviewText = modal.querySelector('#review-text').value.trim();
+            
+            if (selectedRating === 0) {
+                showNotification('Please select a rating', 'error');
+                return;
+            }
+            
+            if (!reviewText) {
+                showNotification('Please write a review', 'error');
+                return;
+            }
+            
+            submitReview(movieId, selectedRating, reviewText);
+            closeReviewModal();
+        });
+    }
+}
+
+// Submit review
+function submitReview(movieId, rating, text) {
+    if (!currentUser) {
+        showNotification('Please login to submit a review', 'error');
+        return;
+    }
+    
+    if (!reviews[movieId]) {
+        reviews[movieId] = [];
+    }
+    
+    const review = {
+        userName: currentUser.name,
+        userId: currentUser.email,
+        rating: rating,
+        text: text,
+        date: new Date().toISOString()
+    };
+    
+    reviews[movieId].push(review);
+    localStorage.setItem('movieReviews', JSON.stringify(reviews));
+    
+    showNotification('Review submitted successfully!', 'success');
+    
+    // Reload reviews for this movie
+    loadReviews(movieId);
+}
+
+// Authenticate user
+function authenticateUser(email, password) {
+    const user = users.find(u => u.email === email && u.password === password);
+    
+    if (user) {
+        // Check if user is approved (for owners)
+        if (user.role === 'owner' && user.approved === false) {
+            showNotification('Your account is pending approval by admin.', 'error');
+            return;
+        }
+        
+        currentUser = user;
+        currentUser.lastLogin = new Date().toISOString();
+        
+        // Update user in users array
+        const userIndex = users.findIndex(u => u.email === user.email);
+        if (userIndex !== -1) {
+            users[userIndex] = currentUser;
+            localStorage.setItem('amviewUsers', JSON.stringify(users));
+        }
+        
+        localStorage.setItem('currentUser', JSON.stringify(currentUser));
+        
+        showAppropriateInterface();
+        loginModal.classList.remove('active');
+        showNotification(`Welcome back, ${currentUser.name}!`, 'success');
+        
+        // Load appropriate content based on user role
+        if (currentUser.role === 'user') {
+            loadHomePage();
+        } else if (currentUser.role === 'owner') {
+            loadOwnerDashboard();
+        }
+        
+        // Close login form
+        document.getElementById('email').value = '';
+        document.getElementById('password').value = '';
+    } else {
+        showNotification('Invalid email or password', 'error');
+    }
+}
+
+// Register new user
+function registerUser() {
+    const signupName = document.getElementById('signup-name').value.trim();
+    const signupEmail = document.getElementById('signup-email').value.trim();
+    const signupPassword = document.getElementById('signup-password').value;
+    const confirmPassword = document.getElementById('confirm-password').value;
+    const termsAgreement = document.getElementById('terms-agreement').checked;
+    
+    // Get selected user type
+    const selectedUserType = document.querySelector('.user-type-option.selected');
+    const userType = selectedUserType ? selectedUserType.dataset.type : 'user';
+    
+    // Validation
+    if (!signupName || !signupEmail || !signupPassword) {
+        showNotification('Please fill in all required fields', 'error');
+        return;
+    }
+    
+    if (signupPassword !== confirmPassword) {
+        showNotification('Passwords do not match', 'error');
+        return;
+    }
+    
+    if (!termsAgreement) {
+        showNotification('Please agree to the Terms of Service', 'error');
+        return;
+    }
+    
+    if (!isValidEmail(signupEmail)) {
+        showNotification('Please enter a valid email address', 'error');
+        return;
+    }
+    
+    // Check if email already exists
+    if (users.some(user => user.email === signupEmail)) {
+        showNotification('Email already registered', 'error');
+        return;
+    }
+    
+    // Check password strength
+    if (signupPassword.length < 6) {
+        showNotification('Password must be at least 6 characters long', 'error');
+        return;
+    }
+    
+    // For movie owners, check payment method
+    let paymentMethod = null;
+    let paymentProvider = null;
+    
+    if (userType === 'owner') {
+        const selectedPaymentOption = document.querySelector('.payment-option.selected');
+        if (!selectedPaymentOption) {
+            showNotification('Please select a payment method', 'error');
+            return;
+        }
+        
+        paymentMethod = selectedPaymentOption.dataset.method;
+        
+        if (paymentMethod === 'mobile') {
+            const selectedProvider = document.querySelector('.mobile-money-option.selected');
+            if (!selectedProvider) {
+                showNotification('Please select a mobile money provider', 'error');
+                return;
+            }
+            paymentProvider = selectedProvider.dataset.provider;
+        } else if (paymentMethod === 'bank') {
+            const selectedBank = document.querySelector('.bank-option.selected');
+            if (!selectedBank) {
+                showNotification('Please select a bank', 'error');
+                return;
+            }
+            paymentProvider = selectedBank.dataset.bank;
+        }
+    }
+    
+    // Create new user
+    const newUser = {
+        email: signupEmail,
+        password: signupPassword,
+        name: signupName,
+        role: userType,
+        joinDate: new Date().toISOString(),
+        subscription: userType === 'owner' ? 'Owner' : 'Basic',
+        subscriptionPlan: userType === 'owner' ? 'owner' : 'basic',
+        subscriptionPrice: userType === 'owner' ? 0 : 9999,
+        subscriptionDate: new Date().toISOString(),
+        subscriptionExpiry: userType === 'owner' ? 
+            new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString() :
+            new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString(),
+        subscriptionStatus: userType === 'owner' ? 'pending' : 'active',
+        lastLogin: new Date().toISOString()
+    };
+    
+    if (userType === 'owner') {
+        newUser.approved = false;
+        newUser.paymentMethod = paymentMethod;
+        newUser.paymentProvider = paymentProvider;
+        
+        // Add to pending owners
+        pendingOwners.push({
+            email: signupEmail,
+            name: signupName,
+            paymentMethod: paymentMethod,
+            paymentProvider: paymentProvider,
+            date: new Date().toISOString()
+        });
+        localStorage.setItem('pendingOwners', JSON.stringify(pendingOwners));
+    }
+    
+    // Add to users array
+    users.push(newUser);
+    localStorage.setItem('amviewUsers', JSON.stringify(users));
+    
+    // Set as current user
+    currentUser = newUser;
+    localStorage.setItem('currentUser', JSON.stringify(newUser));
+    
+    // Show success message
+    showNotification(
+        userType === 'owner' ? 
+        'Registration successful! Your account is pending admin approval.' : 
+        'Registration successful! Welcome to AMVIEW.',
+        'success'
+    );
+    
+    // Close modal and show appropriate interface
+    loginModal.classList.remove('active');
+    showAppropriateInterface();
+    
+    // Reset form
+    document.getElementById('signup-form').reset();
+    document.querySelectorAll('.user-type-option').forEach(opt => opt.classList.remove('selected'));
+    document.querySelectorAll('.payment-option').forEach(opt => opt.classList.remove('selected'));
+    mobileMoneyOptions.style.display = 'none';
+    bankOptions.style.display = 'none';
+    paymentMethodSection.style.display = 'none';
+}
+
+// Show appropriate interface based on user role
+function showAppropriateInterface() {
+    loginPage.classList.add('hidden');
+    userInterface.classList.add('hidden');
+    ownerInterface.classList.add('hidden');
+    adminInterface.classList.add('hidden');
+    
+    if (!currentUser) {
+        loginPage.classList.remove('hidden');
+        return;
+    }
+    
+    switch(currentUser.role) {
+        case 'user':
+            userInterface.classList.remove('hidden');
+            updateUserProfileInHeader();
+            break;
+        case 'owner':
+            ownerInterface.classList.remove('hidden');
+            updateOwnerProfileInHeader();
+            break;
+        case 'admin':
+            adminInterface.classList.remove('hidden');
+            updateAdminProfileInHeader();
+            break;
+        default:
+            loginPage.classList.remove('hidden');
+    }
+}
+
+// Update user profile in header
+function updateUserProfileInHeader() {
+    const userAvatar = document.getElementById('user-avatar');
+    const userFullname = document.getElementById('user-fullname');
+    
+    if (userAvatar && currentUser) {
+        userAvatar.textContent = currentUser.name.charAt(0).toUpperCase();
+    }
+    
+    if (userFullname && currentUser) {
+        userFullname.textContent = currentUser.name;
+    }
+}
+
+// Update owner profile in header
+function updateOwnerProfileInHeader() {
+    const ownerFullname = document.getElementById('owner-fullname');
+    if (ownerFullname && currentUser) {
+        ownerFullname.textContent = currentUser.name;
+    }
+}
+
+// Update admin profile in header
+function updateAdminProfileInHeader() {
+    // Admin profile is mostly static in this implementation
+}
+
+// Show notification
+function showNotification(message, type = 'info') {
+    if (!notification) return;
+    
+    notification.textContent = message;
+    notification.className = `notification ${type}`;
+    
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 10);
+    
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+            notification.className = 'notification';
+        }, 300);
+    }, 3000);
+}
+
+// Logout function
+function logout() {
+    currentUser = null;
+    localStorage.removeItem('currentUser');
+    
+    loginPage.classList.remove('hidden');
+    userInterface.classList.add('hidden');
+    ownerInterface.classList.add('hidden');
+    adminInterface.classList.add('hidden');
+    
+    showNotification('Logged out successfully', 'success');
+}
+
+// Validate password strength
+function validatePasswordStrength() {
+    const password = document.getElementById('signup-password');
+    const strengthText = document.getElementById('strength-text');
+    const strengthFill = document.querySelector('.strength-fill');
+    
+    if (!password || !strengthText || !strengthFill) return;
+    
+    const pass = password.value;
+    let strength = 0;
+    let text = 'Weak';
+    
+    if (pass.length >= 8) strength += 25;
+    if (/[A-Z]/.test(pass)) strength += 25;
+    if (/[0-9]/.test(pass)) strength += 25;
+    if (/[^A-Za-z0-9]/.test(pass)) strength += 25;
+    
+    if (strength >= 75) {
+        text = 'Strong';
+        strengthFill.className = 'strength-fill strength-strong';
+    } else if (strength >= 50) {
+        text = 'Medium';
+        strengthFill.className = 'strength-fill strength-medium';
+    } else {
+        text = 'Weak';
+        strengthFill.className = 'strength-fill strength-weak';
+    }
+    
+    strengthText.textContent = text;
+    strengthFill.style.width = `${strength}%`;
+}
+
+// Validate password match
+function validatePasswordMatch() {
+    const password = document.getElementById('signup-password');
+    const confirm = document.getElementById('confirm-password');
+    const formGroup = confirm.closest('.form-group');
+    
+    if (!password || !confirm || !formGroup) return;
+    
+    if (confirm.value && password.value !== confirm.value) {
+        formGroup.classList.add('error');
+    } else {
+        formGroup.classList.remove('error');
+    }
+}
+
+// Load home page
+function loadHomePage() {
+    // Load trending movies
+    const trendingMovies = movies.filter(movie => movie.trending);
+    renderMovieGrid('trending-movies', trendingMovies);
+    
+    // Load new releases
+    const newReleases = movies.filter(movie => movie.new);
+    renderMovieGrid('new-releases', newReleases);
+    
+    // Generate recommendations
+    generateRecommendations();
+    
+    // Set up category functionality
+    setupCategoryFunctionality();
+}
+
+// Render movie grid
 function renderMovieGrid(containerId, movies, showRemoveButton = false) {
     const container = document.getElementById(containerId);
     if (!container) return;
@@ -8153,7 +8967,7 @@ function renderMovieGrid(containerId, movies, showRemoveButton = false) {
     container.innerHTML = '';
     
     if (movies.length === 0) {
-        container.innerHTML = '<p style="grid-column: 1 / -1; text-align: center; padding: 40px;">No movies found.</p>';
+        container.innerHTML = '<p>No movies found.</p>';
         return;
     }
     
@@ -8162,15 +8976,12 @@ function renderMovieGrid(containerId, movies, showRemoveButton = false) {
         movieCard.className = 'movie-card';
         movieCard.setAttribute('data-movie-id', movie.id);
         
-        // Check if movie is recently added (within 30 days)
+        // Check if movie is recently added
         const isRecentlyAdded = movie.addedDate && 
             (new Date() - new Date(movie.addedDate)) < (30 * 24 * 60 * 60 * 1000);
         
         // Check if movie is downloaded
         const isDownloaded = offlineDownloads[movie.id];
-        
-        // Check if movie is in user's list
-        const isInList = myList.includes(movie.id);
         
         movieCard.innerHTML = `
             <div class="movie-card-inner">
@@ -8184,23 +8995,12 @@ function renderMovieGrid(containerId, movies, showRemoveButton = false) {
                         <span class="movie-rating"><i class="fas fa-star"></i> ${movie.rating}</span>
                     </div>
                     <div class="movie-actions">
-                        <button class="btn-primary watch-now-btn" data-movie-id="${movie.id}">
-                            <i class="fas fa-play"></i> Watch
-                        </button>
                         ${!isDownloaded ? 
                             `<button class="btn-secondary download-movie-btn" data-movie-id="${movie.id}">
                                 <i class="fas fa-download"></i> Download
                             </button>` :
                             `<button class="btn-secondary remove-download-btn" data-movie-id="${movie.id}">
                                 <i class="fas fa-trash"></i> Remove
-                            </button>`
-                        }
-                        ${!isInList ? 
-                            `<button class="btn-secondary add-to-list-btn" data-movie-id="${movie.id}">
-                                <i class="fas fa-plus"></i> My List
-                            </button>` :
-                            `<button class="btn-secondary remove-from-list-btn" data-movie-id="${movie.id}">
-                                <i class="fas fa-check"></i> In List
                             </button>`
                         }
                         ${showRemoveButton ? 
@@ -8212,12 +9012,14 @@ function renderMovieGrid(containerId, movies, showRemoveButton = false) {
             </div>
         `;
         
-        // Add click event to show movie details (but not on buttons)
+        // Add click event to show movie details
         movieCard.addEventListener('click', function(e) {
-            if (!e.target.classList.contains('btn') && 
-                !e.target.closest('.btn') &&
-                !e.target.classList.contains('movie-actions') &&
-                !e.target.closest('.movie-actions')) {
+            if (!e.target.classList.contains('download-movie-btn') && 
+                !e.target.classList.contains('remove-download-btn') &&
+                !e.target.classList.contains('remove-from-list') &&
+                !e.target.closest('.download-movie-btn') &&
+                !e.target.closest('.remove-download-btn') &&
+                !e.target.closest('.remove-from-list')) {
                 showMovieDetails(movie.id);
             }
         });
@@ -8225,18 +9027,7 @@ function renderMovieGrid(containerId, movies, showRemoveButton = false) {
         container.appendChild(movieCard);
     });
     
-    // Add event listeners for buttons
-    container.querySelectorAll('.watch-now-btn').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            const movieId = parseInt(this.dataset.movieId);
-            const movie = movies.find(m => m.id === movieId);
-            if (movie && movie.videoUrl) {
-                playVideo(movie.videoUrl, movie.title);
-            }
-        });
-    });
-    
+    // Add event listeners for download buttons
     container.querySelectorAll('.download-movie-btn').forEach(btn => {
         btn.addEventListener('click', function(e) {
             e.stopPropagation();
@@ -8245,6 +9036,7 @@ function renderMovieGrid(containerId, movies, showRemoveButton = false) {
         });
     });
     
+    // Add event listeners for remove download buttons
     container.querySelectorAll('.remove-download-btn').forEach(btn => {
         btn.addEventListener('click', function(e) {
             e.stopPropagation();
@@ -8253,22 +9045,7 @@ function renderMovieGrid(containerId, movies, showRemoveButton = false) {
         });
     });
     
-    container.querySelectorAll('.add-to-list-btn').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            const movieId = parseInt(this.dataset.movieId);
-            toggleMovieInList(movieId);
-        });
-    });
-    
-    container.querySelectorAll('.remove-from-list-btn').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            const movieId = parseInt(this.dataset.movieId);
-            toggleMovieInList(movieId);
-        });
-    });
-    
+    // Add event listeners for remove from list buttons if present
     if (showRemoveButton) {
         container.querySelectorAll('.remove-from-list').forEach(btn => {
             btn.addEventListener('click', function(e) {
@@ -8280,47 +9057,169 @@ function renderMovieGrid(containerId, movies, showRemoveButton = false) {
     }
 }
 
-// Update download progress UI
-function updateDownloadProgressUI(movieId, progress) {
-    // Update progress bar if visible
-    const progressBars = document.querySelectorAll(`[data-movie-id="${movieId}"] .download-progress`);
-    progressBars.forEach(progressBar => {
-        const fill = progressBar.querySelector('.download-progress-fill');
-        if (fill) {
-            fill.style.width = `${progress}%`;
-        }
-    });
+// Setup category functionality
+function setupCategoryFunctionality() {
+    const categories = document.querySelectorAll('.category');
+    const categoryMoviesContainer = document.getElementById('category-movies');
+    const categoryResultsInfo = document.getElementById('category-results-info');
+    const noCategorySelected = document.getElementById('no-category-selected');
     
-    // Update downloads page if open
-    if (document.getElementById('downloads-page') && 
-        !document.getElementById('downloads-page').classList.contains('hidden')) {
-        loadDownloadsPage();
-    }
+    if (!categories.length || !categoryMoviesContainer || !categoryResultsInfo || !noCategorySelected) return;
+    
+    categories.forEach(category => {
+        category.addEventListener('click', function() {
+            // Update active category
+            categories.forEach(c => c.classList.remove('active'));
+            this.classList.add('active');
+            
+            const categoryName = this.textContent.toLowerCase();
+            
+            // Hide "no category selected" message
+            noCategorySelected.style.display = 'none';
+            
+            // Show category results
+            categoryMoviesContainer.style.display = 'grid';
+            
+            // Filter movies by category
+            let filteredMovies = [];
+            if (categoryName === 'all') {
+                filteredMovies = movies;
+                categoryResultsInfo.innerHTML = '<h3>All Movies</h3><p>Showing all available movies</p>';
+            } else {
+                filteredMovies = movies.filter(movie => 
+                    movie.genre.toLowerCase().includes(categoryName)
+                );
+                categoryResultsInfo.innerHTML = `<h3>${categoryName.charAt(0).toUpperCase() + categoryName.slice(1)} Movies</h3><p>Found ${filteredMovies.length} movies in this category</p>`;
+            }
+            
+            // Render movies
+            renderMovieGrid('category-movies', filteredMovies);
+        });
+    });
 }
 
-// Toggle movie in user's list
+// Load browse page
+function loadBrowsePage() {
+    const browseMoviesContainer = document.getElementById('browse-movies');
+    if (!browseMoviesContainer) return;
+    
+    // Initially show all movies
+    renderMovieGrid('browse-movies', movies);
+    
+    // Set up filter functionality
+    setupBrowseFilters();
+}
+
+// Setup browse filters
+function setupBrowseFilters() {
+    const genreFilter = document.getElementById('genre-filter');
+    const yearFilter = document.getElementById('year-filter');
+    const sortByFilter = document.getElementById('sort-by');
+    
+    if (!genreFilter || !yearFilter || !sortByFilter) return;
+    
+    const applyFilters = () => {
+        const genre = genreFilter.value;
+        const year = yearFilter.value;
+        const sortBy = sortByFilter.value;
+        
+        let filteredMovies = [...movies];
+        
+        // Apply genre filter
+        if (genre) {
+            filteredMovies = filteredMovies.filter(movie => 
+                movie.genre.toLowerCase().includes(genre.toLowerCase())
+            );
+        }
+        
+        // Apply year filter
+        if (year) {
+            filteredMovies = filteredMovies.filter(movie => 
+                movie.year === parseInt(year)
+            );
+        }
+        
+        // Apply sorting
+        switch(sortBy) {
+            case 'popularity':
+                // For simplicity, we'll sort by rating for popularity
+                filteredMovies.sort((a, b) => b.rating - a.rating);
+                break;
+            case 'rating':
+                filteredMovies.sort((a, b) => b.rating - a.rating);
+                break;
+            case 'newest':
+                filteredMovies.sort((a, b) => b.year - a.year);
+                break;
+            case 'oldest':
+                filteredMovies.sort((a, b) => a.year - b.year);
+                break;
+        }
+        
+        renderMovieGrid('browse-movies', filteredMovies);
+    };
+    
+    genreFilter.addEventListener('change', applyFilters);
+    yearFilter.addEventListener('change', applyFilters);
+    sortByFilter.addEventListener('change', applyFilters);
+}
+
+// Load my list page
+function loadMyListPage() {
+    const myListMoviesContainer = document.getElementById('my-list-movies');
+    if (!myListMoviesContainer) return;
+    
+    // Get movies in my list
+    const myListMovies = movies.filter(movie => myList.includes(movie.id));
+    
+    if (myListMovies.length === 0) {
+        myListMoviesContainer.innerHTML = `
+            <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px;">
+                <i class="fas fa-film" style="font-size: 3rem; margin-bottom: 20px; opacity: 0.5;"></i>
+                <h3>Your list is empty</h3>
+                <p>Add movies to your list to watch them later</p>
+                <a href="#" class="btn-primary" data-page="browse" style="margin-top: 20px; display: inline-block;">Browse Movies</a>
+            </div>
+        `;
+        return;
+    }
+    
+    renderMovieGrid('my-list-movies', myListMovies, true);
+}
+
+// Toggle movie in list
 function toggleMovieInList(movieId) {
     const index = myList.indexOf(movieId);
+    const addToListBtn = document.getElementById('add-to-list-btn');
+    const notificationMessage = document.getElementById('notification-message');
+    
     if (index === -1) {
+        // Add to list
         myList.push(movieId);
+        if (addToListBtn) {
+            addToListBtn.innerHTML = '<i class="fas fa-check"></i> In My List';
+        }
         showNotification('Added to My List', 'success');
     } else {
+        // Remove from list
         myList.splice(index, 1);
+        if (addToListBtn) {
+            addToListBtn.innerHTML = '<i class="fas fa-plus"></i> Add to My List';
+        }
         showNotification('Removed from My List', 'success');
     }
+    
+    // Save to localStorage
     localStorage.setItem('myList', JSON.stringify(myList));
     
-    // Refresh the current view
+    // Update my list page if visible
     if (document.getElementById('my-list-page') && 
         !document.getElementById('my-list-page').classList.contains('hidden')) {
         loadMyListPage();
     }
-    
-    // Refresh other views
-    refreshMovieGrids();
 }
 
-// Remove movie from list
+// Remove from list
 function removeFromList(movieId) {
     const index = myList.indexOf(movieId);
     if (index !== -1) {
@@ -8331,583 +9230,413 @@ function removeFromList(movieId) {
     }
 }
 
-// Show movie details
-function showMovieDetails(movieId) {
-    const movie = movies.find(m => m.id === movieId);
-    if (!movie) return;
+// Load owner dashboard
+function loadOwnerDashboard() {
+    const totalMoviesEl = document.getElementById('owner-total-movies');
+    const approvedMoviesEl = document.getElementById('owner-approved-movies');
+    const pendingMoviesEl = document.getElementById('owner-pending-movies');
+    const rejectedMoviesEl = document.getElementById('owner-rejected-movies');
     
-    // Hide all pages
-    document.querySelectorAll('.page').forEach(page => page.classList.add('hidden'));
+    if (!totalMoviesEl || !currentUser) return;
     
-    // Show movie details page
-    const movieDetailsPage = document.getElementById('movie-details-page');
-    if (movieDetailsPage) {
-        movieDetailsPage.classList.remove('hidden');
-        
-        // Update movie details
-        document.getElementById('detail-poster').src = movie.poster;
-        document.getElementById('detail-poster').alt = movie.title;
-        document.getElementById('detail-title').textContent = movie.title;
-        document.getElementById('detail-year').textContent = movie.year;
-        document.getElementById('detail-rating').textContent = movie.rating + '/10';
-        document.getElementById('detail-duration').textContent = formatDuration(movie.duration);
-        document.getElementById('detail-genre').textContent = movie.genre;
-        document.getElementById('detail-description').textContent = movie.description;
-        
-        // Update background
-        const bgDiv = movieDetailsPage.querySelector('.user-page-bg');
-        if (bgDiv) {
-            bgDiv.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('${movie.poster}')`;
-        }
-        
-        // Set data attributes for buttons
-        const watchBtn = document.getElementById('watch-now-btn');
-        const downloadBtn = document.getElementById('download-movie-btn');
-        const addToListBtn = document.getElementById('add-to-list-btn');
-        
-        if (watchBtn) watchBtn.setAttribute('data-movie-id', movieId);
-        if (downloadBtn) downloadBtn.setAttribute('data-movie-id', movieId);
-        if (addToListBtn) addToListBtn.setAttribute('data-movie-id', movieId);
-        
-        // Update add to list button state
-        if (addToListBtn) {
-            if (myList.includes(movieId)) {
-                addToListBtn.innerHTML = '<i class="fas fa-check"></i> In My List';
-            } else {
-                addToListBtn.innerHTML = '<i class="fas fa-plus"></i> Add to My List';
-            }
-        }
-        
-        // Update download button state
-        if (downloadBtn) {
-            if (offlineDownloads[movieId]) {
-                downloadBtn.innerHTML = '<i class="fas fa-trash"></i> Remove Download';
-                downloadBtn.onclick = function() {
-                    removeDownload(movieId);
-                };
-            } else {
-                downloadBtn.innerHTML = '<i class="fas fa-download"></i> Download';
-                downloadBtn.onclick = function() {
-                    downloadMovie(movieId);
-                };
-            }
-        }
-        
-        // Load cast
-        loadCastForMovie(movieId);
-        
-        // Load reviews
-        loadReviewsForMovie(movieId);
-        
-        // Update active navigation
-        document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-    }
+    // Get owner's movies
+    const ownerMovies = movies.filter(movie => movie.owner === currentUser.email);
+    const approvedMovies = ownerMovies.filter(movie => movie.status === 'approved');
+    const pendingMovies = ownerMovies.filter(movie => movie.status === 'pending');
+    const rejectedMovies = ownerMovies.filter(movie => movie.status === 'rejected');
+    
+    // Update stats
+    totalMoviesEl.textContent = ownerMovies.length;
+    if (approvedMoviesEl) approvedMoviesEl.textContent = approvedMovies.length;
+    if (pendingMoviesEl) pendingMoviesEl.textContent = pendingMovies.length;
+    if (rejectedMoviesEl) rejectedMoviesEl.textContent = rejectedMovies.length;
 }
 
-// Format duration from minutes to hours and minutes
-function formatDuration(minutes) {
-    const hours = Math.floor(minutes / 60);
-    const mins = minutes % 60;
-    return hours > 0 ? `${hours}h ${mins}m` : `${mins}m`;
-}
-
-// Load cast for movie
-function loadCastForMovie(movieId) {
-    const castGrid = document.getElementById('cast-grid');
-    if (!castGrid) return;
+// Load owner status page
+function loadOwnerStatus() {
+    const uploadStatusList = document.getElementById('upload-status-list');
+    if (!uploadStatusList || !currentUser) return;
     
-    // Mock cast data - in a real app, this would come from an API
-    const mockCast = [
-        { name: "Actor One", character: "Main Role", photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" },
-        { name: "Actor Two", character: "Supporting Role", photo: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" },
-        { name: "Actor Three", character: "Villain", photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" },
-        { name: "Actor Four", character: "Comic Relief", photo: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1964&q=80" }
-    ];
+    // Get owner's pending movies
+    const ownerPendingMovies = pendingMovies.filter(movie => movie.owner === currentUser.email);
     
-    castGrid.innerHTML = '';
-    mockCast.forEach(actor => {
-        const castMember = document.createElement('div');
-        castMember.className = 'cast-member';
-        castMember.innerHTML = `
-            <img src="${actor.photo}" alt="${actor.name}" class="cast-photo">
-            <h4>${actor.name}</h4>
-            <p>${actor.character}</p>
+    if (ownerPendingMovies.length === 0) {
+        uploadStatusList.innerHTML = `
+            <div style="text-align: center; padding: 40px; color: var(--text-secondary);">
+                <i class="fas fa-check-circle" style="font-size: 3rem; margin-bottom: 20px; opacity: 0.5;"></i>
+                <h3>No pending uploads</h3>
+                <p>All your movies have been processed</p>
+            </div>
         `;
-        castGrid.appendChild(castMember);
-    });
-}
-
-// Load reviews for movie
-function loadReviewsForMovie(movieId) {
-    const reviewsList = document.getElementById('reviews-list');
-    const ratingValue = document.querySelector('.rating-value');
-    const stars = document.querySelectorAll('.stars i');
-    const reviewCount = document.querySelector('.review-count');
-    
-    if (!reviewsList) return;
-    
-    // Get reviews for this movie
-    const movieReviews = reviews[movieId] || [];
-    
-    // Update average rating
-    if (movieReviews.length > 0) {
-        const averageRating = movieReviews.reduce((sum, review) => sum + review.rating, 0) / movieReviews.length;
-        if (ratingValue) ratingValue.textContent = averageRating.toFixed(1);
-        
-        // Update stars
-        if (stars) {
-            stars.forEach((star, index) => {
-                if (index < Math.round(averageRating)) {
-                    star.className = 'fas fa-star';
-                } else {
-                    star.className = 'far fa-star';
-                }
-            });
-        }
-        
-        if (reviewCount) reviewCount.textContent = `${movieReviews.length} reviews`;
-    } else {
-        if (ratingValue) ratingValue.textContent = '0.0';
-        if (stars) stars.forEach(star => star.className = 'far fa-star');
-        if (reviewCount) reviewCount.textContent = '0 reviews';
-    }
-    
-    // Display reviews
-    reviewsList.innerHTML = '';
-    
-    if (movieReviews.length === 0) {
-        reviewsList.innerHTML = '<div class="no-reviews">No reviews yet. Be the first to review this movie!</div>';
         return;
     }
     
-    movieReviews.forEach(review => {
-        const reviewItem = document.createElement('div');
-        reviewItem.className = 'review-item';
-        
-        const reviewDate = new Date(review.date).toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'short',
-            day: 'numeric'
-        });
-        
-        reviewItem.innerHTML = `
-            <div class="review-header">
-                <div class="reviewer-info">
-                    <div class="reviewer-avatar">${review.userName.charAt(0).toUpperCase()}</div>
-                    <div>
-                        <h4>${review.userName}</h4>
-                        <div class="review-rating">
-                            ${'★'.repeat(review.rating)}${'☆'.repeat(5-review.rating)}
-                        </div>
-                    </div>
-                </div>
-                <div class="review-date">${reviewDate}</div>
-            </div>
-            <div class="review-text">${review.text}</div>
-        `;
-        
-        reviewsList.appendChild(reviewItem);
-    });
-    
-    // Add event listener for write review button
-    const writeReviewBtn = document.querySelector('.write-review-btn');
-    if (writeReviewBtn) {
-        writeReviewBtn.addEventListener('click', function() {
-            showReviewModal(movieId);
-        });
-    }
-}
-
-// Show review modal
-function showReviewModal(movieId) {
-    // Create modal if it doesn't exist
-    let modal = document.getElementById('review-modal');
-    if (!modal) {
-        modal = document.createElement('div');
-        modal.id = 'review-modal';
-        modal.className = 'review-modal hidden';
-        modal.innerHTML = `
-            <div class="review-modal-content">
-                <div class="modal-header">
-                    <h2>Write a Review</h2>
-                    <button class="close-modal">&times;</button>
-                </div>
-                <div class="rating-selector">
-                    <label>Your Rating</label>
-                    <div class="star-rating" id="star-rating">
-                        <i class="far fa-star" data-rating="1"></i>
-                        <i class="far fa-star" data-rating="2"></i>
-                        <i class="far fa-star" data-rating="3"></i>
-                        <i class="far fa-star" data-rating="4"></i>
-                        <i class="far fa-star" data-rating="5"></i>
-                    </div>
-                    <div class="rating-text" id="rating-text">Select a rating</div>
-                </div>
-                <div class="form-group">
-                    <label for="review-text">Your Review</label>
-                    <textarea id="review-text" rows="4" placeholder="Share your thoughts about this movie..."></textarea>
-                </div>
-                <div class="form-actions">
-                    <button class="btn-primary" id="submit-review">Submit Review</button>
-                    <button class="btn-secondary" id="cancel-review">Cancel</button>
+    uploadStatusList.innerHTML = ownerPendingMovies.map(movie => `
+        <div class="status-item">
+            <div>
+                <strong>${movie.title}</strong>
+                <div style="font-size: 0.9rem; color: var(--text-secondary);">
+                    Uploaded: ${new Date(movie.uploadDate).toLocaleDateString()}
                 </div>
             </div>
-        `;
-        document.body.appendChild(modal);
-        
-        // Add event listeners
-        modal.querySelector('.close-modal').addEventListener('click', function() {
-            modal.classList.add('hidden');
-        });
-        
-        modal.querySelector('#cancel-review').addEventListener('click', function() {
-            modal.classList.add('hidden');
-        });
-        
-        // Star rating interaction
-        const stars = modal.querySelectorAll('.star-rating i');
-        stars.forEach(star => {
-            star.addEventListener('mouseover', function() {
-                const rating = parseInt(this.dataset.rating);
-                highlightStars(rating);
-            });
-            
-            star.addEventListener('click', function() {
-                const rating = parseInt(this.dataset.rating);
-                selectedRating = rating;
-                updateRatingText(rating);
-            });
-        });
-        
-        modal.querySelector('.star-rating').addEventListener('mouseleave', function() {
-            if (selectedRating) {
-                highlightStars(selectedRating);
-            } else {
-                resetStars();
-            }
-        });
-        
-        // Submit review
-        modal.querySelector('#submit-review').addEventListener('click', function() {
-            submitReview(movieId);
-        });
-        
-        // Close modal when clicking outside
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                modal.classList.add('hidden');
-            }
-        });
-    }
-    
-    // Reset modal state
-    selectedRating = 0;
-    resetStars();
-    modal.querySelector('#review-text').value = '';
-    modal.querySelector('#rating-text').textContent = 'Select a rating';
-    
-    // Show modal
-    modal.classList.remove('hidden');
-}
-
-let selectedRating = 0;
-
-function highlightStars(rating) {
-    const stars = document.querySelectorAll('#star-rating i');
-    stars.forEach((star, index) => {
-        if (index < rating) {
-            star.className = 'fas fa-star';
-        } else {
-            star.className = 'far fa-star';
-        }
-    });
-}
-
-function resetStars() {
-    const stars = document.querySelectorAll('#star-rating i');
-    stars.forEach(star => {
-        star.className = 'far fa-star';
-    });
-}
-
-function updateRatingText(rating) {
-    const texts = ['Poor', 'Fair', 'Good', 'Very Good', 'Excellent'];
-    document.getElementById('rating-text').textContent = texts[rating - 1];
-}
-
-function submitReview(movieId) {
-    const reviewText = document.getElementById('review-text').value.trim();
-    
-    if (!selectedRating) {
-        showNotification('Please select a rating', 'error');
-        return;
-    }
-    
-    if (!reviewText) {
-        showNotification('Please write a review', 'error');
-        return;
-    }
-    
-    // Initialize reviews for this movie if needed
-    if (!reviews[movieId]) {
-        reviews[movieId] = [];
-    }
-    
-    // Add review
-    reviews[movieId].push({
-        userId: currentUser.email,
-        userName: currentUser.name,
-        rating: selectedRating,
-        text: reviewText,
-        date: new Date().toISOString()
-    });
-    
-    // Save to localStorage
-    localStorage.setItem('movieReviews', JSON.stringify(reviews));
-    
-    // Close modal
-    document.getElementById('review-modal').classList.add('hidden');
-    
-    // Reload reviews
-    loadReviewsForMovie(movieId);
-    
-    showNotification('Thank you for your review!', 'success');
-}
-
-// PHASE 1: Skip intro functionality
-function initSkipIntro() {
-    const skipIntroBtn = document.createElement('button');
-    skipIntroBtn.className = 'skip-intro-btn hidden';
-    skipIntroBtn.textContent = 'Skip Intro';
-    skipIntroBtn.id = 'skip-intro-btn';
-    
-    document.body.appendChild(skipIntroBtn);
-    
-    if (videoPlayer) {
-        videoPlayer.addEventListener('timeupdate', function() {
-            if (videoPlayer.currentTime > 90 && videoPlayer.currentTime < 150) { // Between 1.5 and 2.5 minutes
-                skipIntroBtn.classList.remove('hidden');
-            } else {
-                skipIntroBtn.classList.add('hidden');
-            }
-        });
-    }
-    
-    skipIntroBtn.addEventListener('click', function() {
-        if (videoPlayer) {
-            videoPlayer.currentTime = 150; // Skip to 2.5 minutes
-            this.classList.add('hidden');
-        }
-    });
-}
-
-// PHASE 1: Quality selector functionality
-function initQualitySelector() {
-    const qualitySelector = document.createElement('div');
-    qualitySelector.className = 'quality-selector hidden';
-    qualitySelector.id = 'quality-selector';
-    
-    qualitySelector.innerHTML = `
-        <div class="quality-options">
-            <h4>Select Quality</h4>
-            <div class="quality-option" data-quality="1080p">
-                <div>
-                    <span>1080p</span>
-                    <div class="quality-bitrate">High quality (4 Mbps)</div>
-                </div>
-                <i class="fas fa-check"></i>
-            </div>
-            <div class="quality-option" data-quality="720p">
-                <div>
-                    <span>720p</span>
-                    <div class="quality-bitrate">Medium quality (2.5 Mbps)</div>
-                </div>
-                <i class="fas fa-check"></i>
-            </div>
-            <div class="quality-option" data-quality="480p">
-                <div>
-                    <span>480p</span>
-                    <div class="quality-bitrate">Low quality (1.5 Mbps)</div>
-                </div>
-                <i class="fas fa-check"></i>
-            </div>
+            <div class="status-badge status-pending">Pending</div>
         </div>
-    `;
-    
-    document.body.appendChild(qualitySelector);
-    
-    // Quality selection
-    qualitySelector.querySelectorAll('.quality-option').forEach(option => {
-        option.addEventListener('click', function() {
-            const quality = this.dataset.quality;
-            
-            // Update active state
-            qualitySelector.querySelectorAll('.quality-option').forEach(opt => {
-                opt.classList.remove('active');
-                opt.querySelector('.fa-check').style.display = 'none';
-            });
-            this.classList.add('active');
-            this.querySelector('.fa-check').style.display = 'block';
-            
-            // Change video quality
-            changeVideoQuality(quality);
-        });
-    });
-    
-    // Show/hide quality selector
-    const videoControls = document.querySelector('.video-controls');
-    if (videoControls) {
-        const qualityBtn = document.createElement('button');
-        qualityBtn.className = 'quality-btn';
-        qualityBtn.innerHTML = '<i class="fas fa-cog"></i> Quality';
-        qualityBtn.addEventListener('click', function() {
-            qualitySelector.classList.toggle('hidden');
-        });
-        videoControls.appendChild(qualityBtn);
-        
-        // Close quality selector when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('.quality-selector') && !e.target.closest('.quality-btn')) {
-                qualitySelector.classList.add('hidden');
-            }
-        });
-    }
+    `).join('');
 }
 
-function changeVideoQuality(quality) {
-    if (!videoPlayer) return;
+// Load owner movies page
+function loadOwnerMovies() {
+    const ownerMoviesGrid = document.getElementById('owner-movies-grid');
+    if (!ownerMoviesGrid || !currentUser) return;
     
-    const currentTime = videoPlayer.currentTime;
-    const isPlaying = !videoPlayer.paused;
+    // Get owner's movies
+    const ownerMovies = movies.filter(movie => movie.owner === currentUser.email);
     
-    // Get the new video URL based on quality
-    const qualityMap = {
-        '1080p': videoQualities[1].url,
-        '720p': videoQualities[2].url,
-        '480p': videoQualities[3].url
+    if (ownerMovies.length === 0) {
+        ownerMoviesGrid.innerHTML = `
+            <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px;">
+                <i class="fas fa-film" style="font-size: 3rem; margin-bottom: 20px; opacity: 0.5;"></i>
+                <h3>No movies uploaded yet</h3>
+                <p>Upload your first movie to get started</p>
+                <a href="#" class="owner-nav-link" data-page="upload" style="margin-top: 20px; display: inline-block;">Upload Movie</a>
+            </div>
+        `;
+        return;
+    }
+    
+    renderMovieGrid('owner-movies-grid', ownerMovies);
+}
+
+// Upload movie
+function uploadMovie() {
+    if (!currentUser || currentUser.role !== 'owner') {
+        showNotification('Only movie owners can upload movies', 'error');
+        return;
+    }
+    
+    const movieTitle = document.getElementById('movie-title').value.trim();
+    const releaseYear = document.getElementById('release-year').value.trim();
+    const genre = document.getElementById('genre').value;
+    const language = document.getElementById('language').value.trim();
+    const description = document.getElementById('description').value.trim();
+    const duration = document.getElementById('duration').value;
+    const rating = document.getElementById('rating').value;
+    const posterUrl = document.getElementById('poster-url').value.trim();
+    const movieFile = document.getElementById('movie-file').files[0];
+    
+    // Validation
+    if (!movieTitle || !releaseYear || !genre || !language || !description || !duration || !rating || !movieFile) {
+        showNotification('Please fill in all required fields', 'error');
+        return;
+    }
+    
+    if (parseInt(releaseYear) < 1900 || parseInt(releaseYear) > 2030) {
+        showNotification('Please enter a valid release year (1900-2030)', 'error');
+        return;
+    }
+    
+    if (parseFloat(rating) < 0 || parseFloat(rating) > 10) {
+        showNotification('Rating must be between 0 and 10', 'error');
+        return;
+    }
+    
+    // Create movie object
+    const newMovie = {
+        id: Date.now(), // Simple ID generation
+        title: movieTitle,
+        year: parseInt(releaseYear),
+        rating: parseFloat(rating),
+        genre: genre,
+        description: description,
+        poster: posterUrl || 'https://images.unsplash.com/photo-1485846234645-a62644f84728?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2059&q=80',
+        duration: parseInt(duration),
+        language: language,
+        downloadable: true,
+        videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4', // Mock URL
+        addedDate: new Date().toISOString(),
+        owner: currentUser.email,
+        status: 'pending',
+        uploadDate: new Date().toISOString(),
+        trending: false,
+        new: true,
+        featured: false
     };
     
-    const newUrl = qualityMap[quality];
-    if (!newUrl) return;
+    // Add to pending movies
+    pendingMovies.push(newMovie);
+    localStorage.setItem('pendingMovies', JSON.stringify(pendingMovies));
     
-    showNotification(`Switching to ${quality}...`, 'success');
+    // Reset form
+    document.getElementById('upload-movie-form').reset();
+    document.getElementById('movie-file-name').textContent = 'No file chosen';
     
-    // Change source and resume playback
-    videoPlayer.src = newUrl;
-    videoPlayer.load();
+    // Show success message
+    showNotification('Movie uploaded successfully! It will be reviewed by admin.', 'success');
     
-    videoPlayer.onloadeddata = function() {
-        videoPlayer.currentTime = currentTime;
-        if (isPlaying) {
-            videoPlayer.play();
-        }
-        showNotification(`Quality changed to ${quality}`, 'success');
-    };
+    // Update owner status page
+    loadOwnerStatus();
 }
 
-// Load movies from localStorage
-function loadMoviesFromStorage() {
-    const storedMovies = localStorage.getItem('amviewMovies');
-    if (storedMovies) {
-        movies = JSON.parse(storedMovies);
-    }
-}
-
-// Update movie new status based on time
-function updateMovieNewStatus() {
-    const thirtyDaysAgo = new Date();
-    thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+// Load owner approvals (admin)
+function loadOwnerApprovals() {
+    const ownerApprovalList = document.getElementById('owner-approval-list');
+    if (!ownerApprovalList) return;
     
-    movies.forEach(movie => {
-        if (movie.addedDate) {
-            const addedDate = new Date(movie.addedDate);
-            movie.new = addedDate > thirtyDaysAgo;
-        }
-    });
-    
-    localStorage.setItem('amviewMovies', JSON.stringify(movies));
-}
-
-// Get current movie ID from video player
-function getCurrentMovieId() {
-    const currentVideoUrl = videoPlayer.src;
-    const movie = movies.find(m => m.videoUrl === currentVideoUrl);
-    return movie ? movie.id : null;
-}
-
-// Show resume prompt
-function showResumePrompt(movieId, progress) {
-    const movie = movies.find(m => m.id === movieId);
-    if (!movie) return;
-    
-    // Create resume modal
-    const resumeModal = document.createElement('div');
-    resumeModal.className = 'resume-modal';
-    resumeModal.innerHTML = `
-        <div class="resume-content">
-            <h3>Continue watching?</h3>
-            <p>You were ${Math.round(progress.percentage)}% through "${movie.title}"</p>
-            <div class="progress-bar">
-                <div class="progress-fill" style="width: ${progress.percentage}%"></div>
+    if (pendingOwners.length === 0) {
+        ownerApprovalList.innerHTML = `
+            <div style="text-align: center; padding: 40px; color: var(--text-secondary);">
+                <i class="fas fa-check-circle" style="font-size: 3rem; margin-bottom: 20px; opacity: 0.5;"></i>
+                <h3>No pending owner approvals</h3>
+                <p>All owner accounts have been processed</p>
             </div>
-            <div class="resume-actions">
-                <button class="btn-primary" id="resume-watching">Resume</button>
-                <button class="btn-secondary" id="restart-watching">Restart</button>
+        `;
+        return;
+    }
+    
+    ownerApprovalList.innerHTML = pendingOwners.map(owner => `
+        <div class="approval-item">
+            <div>
+                <strong>${owner.name}</strong>
+                <div style="font-size: 0.9rem; color: var(--text-secondary);">
+                    ${owner.email} • ${owner.paymentMethod} (${owner.paymentProvider})
+                </div>
+                <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 5px;">
+                    Requested: ${new Date(owner.date).toLocaleDateString()}
+                </div>
+            </div>
+            <div class="approval-actions">
+                <button class="action-btn approve-owner-btn" data-email="${owner.email}">
+                    <i class="fas fa-check"></i> Approve
+                </button>
+                <button class="action-btn reject-owner-btn" data-email="${owner.email}">
+                    <i class="fas fa-times"></i> Reject
+                </button>
             </div>
         </div>
-    `;
-    
-    document.body.appendChild(resumeModal);
+    `).join('');
     
     // Add event listeners
-    resumeModal.querySelector('#resume-watching').addEventListener('click', function() {
-        videoPlayer.currentTime = progress.currentTime;
-        resumeModal.remove();
-        videoPlayer.play();
+    ownerApprovalList.querySelectorAll('.approve-owner-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const email = this.dataset.email;
+            approveOwner(email);
+        });
     });
     
-    resumeModal.querySelector('#restart-watching').addEventListener('click', function() {
-        videoPlayer.currentTime = 0;
-        resumeModal.remove();
-        videoPlayer.play();
+    ownerApprovalList.querySelectorAll('.reject-owner-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const email = this.dataset.email;
+            rejectOwner(email);
+        });
+    });
+}
+
+// Load movie approvals (admin)
+function loadMovieApprovals() {
+    const movieApprovalList = document.getElementById('movie-approval-list');
+    if (!movieApprovalList) return;
+    
+    if (pendingMovies.length === 0) {
+        movieApprovalList.innerHTML = `
+            <div style="text-align: center; padding: 40px; color: var(--text-secondary);">
+                <i class="fas fa-check-circle" style="font-size: 3rem; margin-bottom: 20px; opacity: 0.5;"></i>
+                <h3>No pending movie approvals</h3>
+                <p>All movies have been processed</p>
+            </div>
+        `;
+        return;
+    }
+    
+    movieApprovalList.innerHTML = pendingMovies.map(movie => `
+        <div class="approval-item">
+            <div>
+                <strong>${movie.title}</strong>
+                <div style="font-size: 0.9rem; color: var(--text-secondary);">
+                    ${movie.year} • ${movie.genre} • ${movie.duration}min
+                </div>
+                <div style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 5px;">
+                    By: ${movie.owner}
+                </div>
+                <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 5px;">
+                    Uploaded: ${new Date(movie.uploadDate).toLocaleDateString()}
+                </div>
+            </div>
+            <div class="approval-actions">
+                <button class="action-btn approve-movie-btn" data-movie-id="${movie.id}">
+                    <i class="fas fa-check"></i> Approve
+                </button>
+                <button class="action-btn reject-movie-btn" data-movie-id="${movie.id}">
+                    <i class="fas fa-times"></i> Reject
+                </button>
+            </div>
+        </div>
+    `).join('');
+    
+    // Add event listeners
+    movieApprovalList.querySelectorAll('.approve-movie-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const movieId = parseInt(this.dataset.movieId);
+            approveMovie(movieId);
+        });
     });
     
-    // Auto-remove after 10 seconds
-    setTimeout(() => {
-        if (resumeModal.parentNode) {
-            resumeModal.remove();
-        }
-    }, 10000);
+    movieApprovalList.querySelectorAll('.reject-movie-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const movieId = parseInt(this.dataset.movieId);
+            rejectMovie(movieId);
+        });
+    });
+}
+
+// Approve owner
+function approveOwner(email) {
+    // Update user in users array
+    const userIndex = users.findIndex(u => u.email === email);
+    if (userIndex !== -1) {
+        users[userIndex].approved = true;
+        users[userIndex].subscriptionStatus = 'active';
+        localStorage.setItem('amviewUsers', JSON.stringify(users));
+    }
+    
+    // Remove from pending owners
+    pendingOwners = pendingOwners.filter(owner => owner.email !== email);
+    localStorage.setItem('pendingOwners', JSON.stringify(pendingOwners));
+    
+    showNotification('Owner account approved', 'success');
+    loadOwnerApprovals();
+}
+
+// Reject owner
+function rejectOwner(email) {
+    // Remove from pending owners
+    pendingOwners = pendingOwners.filter(owner => owner.email !== email);
+    localStorage.setItem('pendingOwners', JSON.stringify(pendingOwners));
+    
+    // Remove from users array
+    users = users.filter(u => u.email !== email);
+    localStorage.setItem('amviewUsers', JSON.stringify(users));
+    
+    showNotification('Owner account rejected', 'success');
+    loadOwnerApprovals();
+}
+
+// Approve movie
+function approveMovie(movieId) {
+    // Find movie in pending movies
+    const movieIndex = pendingMovies.findIndex(m => m.id === movieId);
+    if (movieIndex === -1) return;
+    
+    const movie = pendingMovies[movieIndex];
+    movie.status = 'approved';
+    
+    // Add to movies array
+    movies.push(movie);
+    localStorage.setItem('amviewMovies', JSON.stringify(movies));
+    
+    // Remove from pending movies
+    pendingMovies.splice(movieIndex, 1);
+    localStorage.setItem('pendingMovies', JSON.stringify(pendingMovies));
+    
+    showNotification('Movie approved and published', 'success');
+    loadMovieApprovals();
+}
+
+// Reject movie
+function rejectMovie(movieId) {
+    // Remove from pending movies
+    pendingMovies = pendingMovies.filter(m => m.id !== movieId);
+    localStorage.setItem('pendingMovies', JSON.stringify(pendingMovies));
+    
+    showNotification('Movie rejected', 'success');
+    loadMovieApprovals();
 }
 
 // Update UI with Phase 2 features
 function updateUIWithPhase2Features() {
-    // Add downloads link to navigation
-    const navLinks = document.querySelector('nav ul');
-    if (navLinks) {
-        const downloadsLink = navLinks.querySelector('[data-page="downloads"]');
-        if (!downloadsLink) {
-            const li = document.createElement('li');
-            li.innerHTML = '<a href="#" class="nav-link" data-page="downloads">Downloads</a>';
-            navLinks.appendChild(li);
+    // This function ensures Phase 2 features are properly integrated
+    enhanceMovieCardsWithDownloads();
+}
+
+// Utility functions
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+// Initialize download functionality
+function initDownloadFunctionality() {
+    // Download functionality is already implemented in the downloadMovie function
+    console.log('Download functionality initialized');
+}
+
+// Update download progress UI
+function updateDownloadProgressUI(movieId, progress) {
+    // Find the download button and update it with progress
+    const downloadBtn = document.querySelector(`.download-movie-btn[data-movie-id="${movieId}"]`);
+    if (downloadBtn) {
+        if (progress < 100) {
+            downloadBtn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> ${progress}%`;
+        } else {
+            downloadBtn.outerHTML = `
+                <button class="btn-secondary remove-download-btn" data-movie-id="${movieId}">
+                    <i class="fas fa-trash"></i> Remove
+                </button>
+            `;
+            
+            // Re-add event listener
+            const newBtn = document.querySelector(`.remove-download-btn[data-movie-id="${movieId}"]`);
+            if (newBtn) {
+                newBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    removeDownload(movieId);
+                });
+            }
         }
-    }
-    
-    // Add refresh recommendations button event listener
-    const refreshBtn = document.getElementById('refresh-recommendations');
-    if (refreshBtn) {
-        refreshBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            generateRecommendations();
-            showNotification('Recommendations refreshed!', 'success');
-        });
     }
 }
 
-// Initialize the enhanced movie grid function
-enhanceMovieCardsWithDownloads();
+// Initialize the application when DOM is loaded
+console.log('AMVIEW application initialized successfully!');
 
-console.log('AMVIEW application initialization complete!');
+// Add CSS for the plan display in the modal
+const style = document.createElement('style');
+style.textContent = `
+    #payment-plan-display {
+        background: rgba(59, 147, 195, 0.1);
+        border: 1px solid rgba(59, 147, 195, 0.3);
+        border-radius: 12px;
+        padding: 20px;
+        margin-bottom: 20px;
+        text-align: center;
+        animation: fadeInUp 0.5s ease;
+    }
+    
+    #payment-plan-display h3 {
+        margin-bottom: 10px;
+        color: #16dcd4;
+        font-size: 1.3rem;
+    }
+    
+    #payment-plan-display .plan-price {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+        color: white;
+    }
+    
+    #payment-plan-display .plan-features {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+    
+    #payment-plan-display .plan-note {
+        font-size: 0.85rem;
+        color: var(--text);
+        font-style: italic;
+    }
+`;
+document.head.appendChild(style);
 </script>
 </body>
 </html>
